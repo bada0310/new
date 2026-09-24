@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bimp · 박성은</title>
+<meta name="description" content="냉장고 사진 한 장으로 식재료를 등록한다 — YOLO 객체 인식과 재고 정합성 로직.">
+<link rel="icon" href="/assets/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/"><img class="brand-av" src="/assets/avatar.webp" alt="" width="26" height="26">BADA</a>
+    <div class="nav-links">
+      <a href="/">홈</a>
+      <a href="/projects" aria-current="page">프로젝트</a>
+      <a href="/skills">기술</a>
+      <a href="/about">이력</a>
+    </div>
+    <a class="nav-cta" href="mailto:pppp000310@gmail.com">Contact</a>
+    <button class="tt" id="pl" type="button" aria-label="차분한 보기 전환" title="차분한 보기 — 모션과 장식을 끕니다">◇</button>
+    <button class="tt" id="tt" type="button" aria-label="라이트/다크 테마 전환">◐</button>
+  </div>
+</nav>
+
+<section class="wrap sec" id="top" style="--fc:var(--c-blue)">
+  <nav class="crumb" aria-label="현재 위치">
+    <a href="/projects">← 프로젝트</a><span class="no">01</span>
+  </nav>
+  <div class="panel" style="--fc:var(--c-blue)"  id="p-vimp" >
+    <div class="panel-hd">
+      <div class="case-row">
+        <span class="tag on">Vision AI</span>
+        <span class="tag">YOLOv5</span><span class="tag">OCR</span><span class="tag">Django</span><span class="tag">Raspberry Pi</span>
+        <span class="tag award">대한산업공학회 캡스톤디자인 경진대회 장려상</span>
+      </div>
+      <h1>Bimp — 냉장고 식자재 인식 · 레시피 추천</h1>
+      <div class="when">2024.03 – 06 (3개월)</div>
+      <p class="sub">직접 입력의 불편을 이미지 인식으로 줄인 졸업 프로젝트.
+         문제를 &lsquo;추천&rsquo;이 아니라 <strong>&lsquo;등록&rsquo;</strong>으로 재정의한 데서 모든 설계가 따라 나왔습니다.</p>
+      <div class="facts"><span>팀 <b>4인</b></span><span>기여도 40%</span><span>YOLO 객체 인식 · 추천 알고리즘 · 재고 관리 로직 · 프레임워크</span></div>
+      <div class="links">
+        <a class="chiplink" href="https://chungmok.notion.site/ffbc33e768ce4e8399e3ebf0b608c1e8" target="_blank" rel="noopener">제안 · 중간 · 최종 보고서 ↗</a>
+        <a class="chiplink" href="https://github.com/wjdtjdbs55/Bimp" target="_blank" rel="noopener">GitHub ↗</a>
+        <span class="chiplink off">배포 없음 · 프로토타입</span>
+      </div>
+    </div>
+    <div class="deep-body">
+    <div class="block" data-sec="overview">
+          <h4>Problem · Evidence</h4>
+          <p>레시피 추천을 받으려면 보유 식재료를 <strong>하나씩 직접 등록</strong>해야 했습니다. 추천에 닿기 전에 입력에서 지칩니다.</p>
+          <p>병목은 추천이 아니라 <strong>그 이전 단계</strong>였습니다. 냉장고 사진과 영수증에 이미 정보가 있으니 이를 입력 수단으로 바꿀 수 있다고 봤습니다.
+             기존 앱의 바코드 스캔은 <strong>포장 없는 채소·정육을 못 잡습니다</strong>.</p>
+        </div>
+              <div class="block" data-sec="overview">
+          <h4>나의 활동</h4>
+          <p>4인 팀에서 <strong>YOLO 객체 인식 모델 개발 · 추천 시스템 알고리즘 · 재고 관리 로직 설계 · 프레임워크 개발</strong>을 맡았습니다.
+             OCR API와 라즈베리파이 촬영 알고리즘은 팀 PM이, 웹 프론트·백엔드는 다른 팀원이 담당했습니다.</p>
+        </div>
+<div class="block" data-sec="overview">
+        <h4>핵심 성과 · Key Achievements</h4>
+        <ul class="kpi">
+          <li><b>문제 재정의</b> 팀이 &lsquo;추천 정확도&rsquo;를 보고 있을 때 병목이 <strong>그 이전 단계인 &lsquo;등록&rsquo;</strong>에 있다고 짚었습니다.
+              냉장고 사진과 영수증에 이미 정보가 들어 있으니 <strong>입력 수단 자체를 바꾸는</strong> 방향으로 스코프를 옮겼습니다</li>
+          <li><b>이종 인식 결과 통합</b> 객체 인식(YOLOv5)과 문자 인식(OCR)을 억지로 한 모델에 합치지 않고
+              <strong>출력 형식만 공통 식재료 스키마로 통일</strong> — 뒷단(추천)이 입력이 사진인지 영수증인지 몰라도 되게 만들었습니다</li>
+          <li><b>인식 한계를 전제로 한 설계</b> 깊이 카메라와 RFID를 각각 비용·현실성으로 기각한 뒤,
+              인식 범위를 <strong>8종으로 좁혀 확실한 것만 자동 처리</strong>하고 확정 전에 <strong>추가·삭제·수정을 분리한 보정 단계</strong>를 넣었습니다</li>
+          <li><b>사용자 검증 22명</b> 알러지 제외 정확성 <strong>22 / 22 (100%)</strong>,
+              추천 결과 만족 <strong>14 / 22 (64%)</strong> &middot; 불만 3명,
+              사용성은 &lsquo;보통&rsquo;이 <strong>12 / 22 (55%)</strong>로 과반 &mdash;
+              규칙으로 처리한 정확성은 완전했지만 <strong>가중치로 만든 만족도와 화면은 남은 과제</strong>라는 게 숫자로 드러났습니다</li>
+        </ul>
+        <div class="meta2">
+          <div><span class="meta2-k">기간</span>2024.03 – 06 (3개월)</div>
+          <div><span class="meta2-k">팀</span>4인 (PM·앱 1 · 웹 1 · AI·로직 2) · 기여도 40%</div>
+          <div><span class="meta2-k">나의 역할</span>YOLO 객체 인식 모델 · 추천 알고리즘 · 재고 관리 로직 · 프레임워크</div>
+          <div><span class="meta2-k">성과</span>대한산업공학회 캡스톤디자인 경진대회 <b>장려상</b> · 졸업 프로젝트</div>
+        </div>
+        <div class="stack2">
+          <div><span class="stack2-k">AI · Vision</span>YOLOv5 · PyTorch · Google Colab (학습)</div>
+          <div><span class="stack2-k">Backend</span>Django · SQLite3 · REST API</div>
+          <div><span class="stack2-k">Device</span>Raspberry Pi · 카메라 모듈 · 마그네틱 센서</div>
+          <div><span class="stack2-k">문서</span>제안 · 중간 · 최종 보고서 (공개 Notion)</div>
+        </div>
+        <div class="callout" style="margin-top:1rem">
+          <b>제약을 먼저 적습니다.</b> 학습 GPU 없음 · 카메라 장치 <b>1대</b> · 팀 4인 · 기간 3개월.
+          정확도를 끝까지 밀어붙이는 선택지는 처음부터 없었고, 그래서 <b>목표를 정확도에서 복구 가능성으로</b> 옮겼습니다.
+        </div>
+      </div>
+        <div class="shots" data-sec="overview">
+      <figure class="shot"><img src="/assets/vimp-detection.webp" alt="YOLOv5가 냉장고 내부 사진에서 식재료를 바운딩 박스로 검출한 결과 화면" loading="lazy"><figcaption>냉장고 내부에서 식재료 후보를 검출한 결과. 겹침·조명에 따라 반드시 틀리므로 확정 전에 보정 단계를 뒀습니다.</figcaption></figure>
+      <figure class="shot"><img src="/assets/vimp-architecture.webp" alt="Bimp 시스템 구조도" loading="lazy"><figcaption>두 개의 입력 경로(냉장고 카메라 / 영수증)를 하나의 공통 식재료 스키마로 합류시킨 구조.</figcaption></figure>
+      <figure class="shot"><img src="/assets/vimp-inventory.webp" alt="인식 결과를 추가·삭제·수정하는 재고 목록 화면" loading="lazy"><figcaption>추가·삭제·수정을 분리한 보정 화면. 정확도를 올리는 대신 &ldquo;틀렸을 때 고칠 수 있게&rdquo; 만들었습니다.</figcaption></figure>
+    </div>
+        <div class="block" data-sec="decision">
+          <h4>Technical Decision</h4>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>결정한 것</th><th>고른 것</th><th>기각한 것</th><th>사유 · 감수한 것</th></tr></thead>
+              <tbody>
+                <tr><td>인식 파이프라인</td><td>두 모델 병행 후 <strong>공통 스키마로 병합</strong></td><td class="kill">단일 모델로 통합 처리</td><td>냉장고(객체)와 영수증(문자)은 문제 유형이 다릅니다. 억지로 한 모델에 넣는 대신 <strong>출력 형식을 통일</strong>했습니다. <em>감수</em>: 중복 병합 규칙이 필요.</td></tr>
+                <tr><td>인식 결과 처리</td><td>추가·삭제·수정 분리 + <strong>사용자 확정 단계</strong></td><td class="kill">인식 결과 자동 확정</td><td>잘못된 재고는 추천 전체를 무의미하게 만듭니다. 정확도를 올리는 대신 <strong>틀렸을 때 고칠 수 있게</strong> 했습니다. <em>감수</em>: 사용자 단계가 하나 늘어남.</td></tr>
+                <tr><td>학습 위치</td><td>Colab</td><td class="kill">로컬 / EC2 GPU</td><td>학습 GPU가 없었고 비용을 쓸 수 없었습니다. <em>감수</em>: 세션 제한으로 학습이 끊깁니다.</td></tr>
+                <tr><td>재고 최신화</td><td>선입선출</td><td class="kill">최신순 / 수량만 관리</td><td>유통기한이 앞선 것부터 소모돼야 추천이 실제 냉장고와 맞습니다.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+              <div class="block" data-sec="decision">
+        <h4>AI 의사결정 — 정확도를 올릴 것인가, 틀릴 것을 전제할 것인가</h4>
+
+        <div class="dec">
+          <div class="dec-q">Q. 왜 두 모델을 병행했나 — 하나로 통합하지 않고</div>
+          <p>냉장고 사진은 <strong>객체 인식</strong> 문제이고 영수증은 <strong>문자 인식</strong> 문제입니다. 입력의 성질이 다릅니다.</p>
+          <p>한 모델로 합치려면 둘 중 하나를 억지로 상대 문제로 변환해야 하는데, 그러면 둘 다 정확도가 떨어집니다.
+             대신 <strong>모델은 둘로 두고 출력 형식만 통일</strong>했습니다 — 공통 식재료 스키마.</p>
+          <p class="dec-cost"><b>얻은 것</b> 뒷단(추천)이 입력이 사진인지 영수증인지 몰라도 됩니다. 나중에 세 번째 입력 경로가 생겨도 스키마만 맞추면 붙습니다.
+             <b>치른 것</b> 같은 품목이 두 경로로 들어오면 중복되므로 <b>병합 규칙</b>이 따로 필요했습니다.</p>
+        </div>
+
+        <div class="dec fail">
+          <div class="dec-q">Q. 인식 정확도를 왜 더 올리지 않았나 — 기각한 두 가지</div>
+          <p>겹치거나 반 개로 잘린 식재료를 세지 못했습니다. 처음엔 <strong>학습 데이터를 늘리면 된다</strong>고 봤는데 틀렸습니다.
+             <strong>단안 카메라에는 깊이 정보가 없어서</strong>, 가려진 뒤에 뭐가 몇 개 있는지 원리상 알 수 없었습니다.</p>
+          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>기각한 안</th><th>얻는 것</th><th>왜 기각했나</th></tr></thead>
+              <tbody>
+                <tr><td>3D 깊이 카메라</td><td>가림 문제가 실제로 풀림</td><td>학부 예산을 넘고, <strong>냉장고 전 칸에 설치</strong>하면 비용이 배로. 한 칸만 달아도 나머지 칸은 여전히 미지</td></tr>
+                <tr><td>식재료마다 RFID 태그</td><td>인식이 거의 완벽해짐</td><td>사용자가 <strong>장 볼 때마다 태그를 붙여야</strong> 함. 원래 문제(등록이 번거롭다)를 더 키움</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="dec-cost"><b>그래서 목표를 바꿨습니다.</b> 정확도를 올리는 대신 <b>인식 범위를 8종으로 좁혀 확실한 것만 자동 처리</b>하고,
+             확정 전에 <b>추가·삭제·수정을 분리한 보정 단계</b>를 넣었습니다. 검증 범위도 냉장고 한 칸으로 한정했습니다.</p>
+          <p class="dec-cost"><b>배운 것</b> 센서가 관측할 수 없는 것은 모델을 키워도 알 수 없습니다.
+             <b>&ldquo;정확하게 만들기&rdquo;와 &ldquo;틀려도 되돌릴 수 있게 만들기&rdquo;는 다른 목표</b>이고, 어느 쪽인지 먼저 정했어야 했습니다.</p>
+        </div>
+
+        <div class="dec">
+          <div class="dec-q">Q. 재고 최신화를 왜 선입선출로 했나</div>
+          <p>최신순이나 수량만 관리하는 방식도 구현은 더 쉽습니다. 그런데 <strong>유통기한이 앞선 것부터 소모돼야</strong>
+             남은 재고가 실제 냉장고와 맞고, 그래야 추천이 의미를 가집니다.</p>
+          <p class="dec-cost"><b>감수한 것</b> 사용자가 실제로 뒤쪽 것을 먼저 꺼내면 어긋납니다. 이 경우도 보정 화면에서 고칠 수 있게 두는 것으로 처리했습니다.</p>
+        </div>
+      </div>
+<div class="block" data-sec="flow">
+          <h4>User Flow</h4>
+          <p class="dgm-lead">확인·수정이 파이프라인의 중심입니다.</p>
+          <figure class="dgm">
+            <svg viewBox="0 0 720 136" role="img" aria-label="Bimp 사용자 흐름: 촬영에서 인식, 확인·수정, 재고 등록을 거쳐 레시피 추천까지. 확인·수정 단계에서 인식 단계로 되돌아가는 보정 경로가 있다.">
+              <defs><marker id="av1" viewBox="0 0 12 12" refX="9.6" refY="6" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto"><path d="M3.2 2.4 L9.4 6 L3.2 9.6" fill="none" stroke="var(--fc)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+              <g>
+                <rect class="nd" x="10" y="30" width="120" height="54" rx="9"/>
+                <text class="t1" x="26" y="54">촬영</text><text class="t2" x="26" y="70">냉장고 / 영수증</text>
+                <rect class="nd" x="152" y="30" width="120" height="54" rx="9"/>
+                <text class="t1" x="168" y="54">인식</text><text class="t2" x="168" y="70">YOLOv5 · OCR</text>
+                <rect class="nd-a" x="294" y="30" width="120" height="54" rx="9"/>
+                <text class="t1" x="310" y="54">확인 · 수정</text><text class="t3" x="310" y="70">추가 / 삭제 / 수정</text>
+                <rect class="nd" x="436" y="30" width="120" height="54" rx="9"/>
+                <text class="t1" x="452" y="54">재고 등록</text><text class="t2" x="452" y="70">선입선출</text>
+                <rect class="nd" x="578" y="30" width="120" height="54" rx="9"/>
+                <text class="t1" x="594" y="54">레시피 추천</text><text class="t2" x="594" y="70">보유 재료 기준</text>
+              </g>
+              <g class="fl" marker-end="url(#av1)">
+                <path d="M134 57 H146"/><path d="M276 57 H288"/><path d="M418 57 H430"/><path d="M560 57 H572"/>
+              </g>
+              <path class="fl-d" marker-end="url(#av1)" d="M354 88 V110 H212 V90"/>
+              <text class="t2" x="368" y="114">인식이 틀리면 여기서 되돌린다 — 확정 전에 반드시 사람을 거친다</text>
+            </svg>
+            <figcaption>인식은 반드시 틀리므로, 정확도를 올리는 대신 틀렸을 때 되돌릴 자리를 흐름 안에 넣었습니다.</figcaption>
+          </figure>
+        </div>
+
+        <div class="block" data-sec="arch">
+          <h4>Data Flow</h4>
+          <p class="dgm-lead">서로 다른 두 인식 문제를 <em>한 모델로 합치지 않았습니다</em>.
+             출력 형식만 통일해, 뒷단은 입력이 사진인지 영수증인지 모릅니다.</p>
+          <figure class="dgm">
+            <svg viewBox="0 0 720 180" role="img" aria-label="Bimp 데이터 흐름도: 냉장고 카메라는 라즈베리파이를 거쳐 YOLOv5로, 영수증은 OCR로 처리된 뒤 공통 식재료 스키마로 합류해 Django를 거쳐 레시피 추천으로 이어지고, SQLite3에는 저장만 된다.">
+              <defs>
+                <marker id="av2" viewBox="0 0 12 12" refX="9.6" refY="6"
+                        markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto">
+                  <path d="M3.2 2.4 L9.4 6 L3.2 9.6" fill="none" stroke="var(--fc)"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+              </defs>
+
+              <text class="t2" x="6" y="14">입력 ① 객체 인식</text>
+              <rect class="nd" x="6" y="22" width="98" height="46" rx="8"/><text class="t1" x="18" y="42">냉장고 카메라</text><text class="t2" x="18" y="58">마그네틱 센서</text>
+              <rect class="nd" x="124" y="22" width="98" height="46" rx="8"/><text class="t1" x="136" y="42">Raspberry Pi</text><text class="t2" x="136" y="58">상시 부착</text>
+              <rect class="nd" x="242" y="22" width="98" height="46" rx="8"/><text class="t1" x="254" y="42">YOLOv5</text><text class="t2" x="254" y="58">Colab 학습</text>
+
+              <text class="t2" x="6" y="104">입력 ② 문자 인식</text>
+              <rect class="nd" x="6" y="112" width="98" height="46" rx="8"/><text class="t1" x="18" y="132">영수증 이미지</text><text class="t2" x="18" y="148">구매 시점</text>
+              <rect class="nd" x="242" y="112" width="98" height="46" rx="8"/><text class="t1" x="254" y="132">OCR</text><text class="t2" x="254" y="148">텍스트 구조</text>
+
+              <rect class="nd-a" x="368" y="54" width="114" height="72" rx="9"/>
+              <text class="t1" x="380" y="82">공통 식재료</text><text class="t1" x="380" y="98">스키마</text>
+              <text class="t3" x="380" y="114">합류 지점</text>
+
+              <rect class="nd" x="512" y="54" width="94" height="72" rx="8"/><text class="t1" x="524" y="84">Django</text><text class="t2" x="524" y="100">EC2</text>
+              <rect class="nd" x="626" y="112" width="88" height="46" rx="8"/><text class="t1" x="638" y="138">레시피 추천</text>
+              <rect class="nd" x="626" y="22" width="88" height="46" rx="8"/><text class="t1" x="638" y="48">SQLite3</text>
+
+              <!-- primary flow: input -> schema -> app -> the point of the product -->
+              <g class="fl" marker-end="url(#av2)">
+                <path d="M104 45 H118"/>
+                <path d="M222 45 H236"/>
+                <path d="M104 135 H236"/>
+                <path d="M340 45 H352 V74 H362"/>
+                <path d="M340 135 H352 V106 H362"/>
+                <path d="M482 90 H506"/>
+                <path d="M606 100 H616 V135 H620"/>
+              </g>
+              <!-- secondary: persistence is a side effect, not the outcome -->
+              <g class="fl-2" marker-end="url(#av2)">
+                <path d="M606 80 H616 V45 H620"/>
+              </g>
+              <text class="t3" x="626" y="80">저장</text>
+            </svg>
+            <figcaption><b>합류는 모델이 아니라 스키마에서</b> 일어납니다. 모델 둘을 각자 두고 출력 형식만 맞췄기 때문에, 한쪽을 바꿔도 다른 쪽과 뒷단은 건드리지 않았습니다.
+              <span class="dgm-meta">제약 · 학습 GPU 없음 / 장치 1대 / 팀 4인 / 3개월&#9;감수 · SQLite3 동시성 한계, Colab 세션 제한</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="block" data-sec="overview">
+          <h4>AS-IS → TO-BE</h4>
+          <div class="arrows">
+            <div class="arrow"><span class="a">식재료를 손으로 하나씩 입력</span><span class="s">→</span><span class="b">촬영 한 번으로 후보 자동 추출</span></div>
+            <div class="arrow"><span class="a">등록이 밀려 재고가 실제와 어긋남</span><span class="s">→</span><span class="b">구매 시점(영수증)에도 갱신</span></div>
+            <div class="arrow"><span class="a">인식 결과를 그대로 확정</span><span class="s">→</span><span class="b">확인·수정을 거쳐 추천으로</span></div>
+          </div>
+        </div>
+
+        <div class="block" data-sec="trouble">
+          <h4>Troubleshooting — 겹치거나 잘린 식재료를 인식하지 못했다</h4>
+          <div class="ts">
+            <div class="ts-row"><div class="ts-k">증상</div><div class="ts-v">냉장고 안에서 식재료가 <strong>겹쳐 있거나 반 개로 잘려 있으면</strong> 개수가 틀리게 잡혔습니다. 재고가 틀리면 추천 결과 전체가 무의미해집니다.</div></div>
+            <div class="ts-row wrong"><div class="ts-k">처음 가설</div><div class="ts-v">학습 데이터를 늘리면 해결된다고 봤습니다. <b>틀렸습니다</b> — 겹침·절단은 데이터 양의 문제가 아니라 단안 카메라로는 잔량 자체를 관측할 수 없는 문제였습니다.</div></div>
+            <div class="ts-row"><div class="ts-k">실제 원인</div><div class="ts-v">Raspberry Pi 카메라 모듈 한 대로는 <strong>깊이 정보가 없습니다.</strong> 객체가 가려지면 뒤에 무엇이 몇 개 있는지 원리상 알 수 없습니다.</div></div>
+            <div class="ts-row"><div class="ts-k">기각한 안</div><div class="ts-v">① <strong>3D 깊이 카메라</strong> — 깊이는 얻지만 학부 예산을 넘고, 냉장고 전 칸에 설치하면 비용이 배로 늡니다.<br>② <strong>식재료마다 RFID 태그</strong> — 인식은 정확해지지만 사용자가 장 볼 때마다 태그를 붙여야 해서 현실성이 없다고 판단했습니다.</div></div>
+            <div class="ts-row"><div class="ts-k">해결</div><div class="ts-v">인식 정확도를 끌어올리는 대신 <strong>틀릴 것을 전제로 흐름을 바꿨습니다.</strong> 인식 범위를 <strong>8종(당근·양파·사과·달걀·양배추 등)</strong>으로 좁혀 확실한 것만 자동 처리하고, 확정 전에 <strong>추가·삭제·수정을 분리한 보정 단계</strong>를 넣었습니다. 검증 범위도 냉장고 한 칸으로 한정해 시스템이 정상 동작함을 보이는 쪽으로 정리했습니다.</div></div>
+            <div class="ts-row"><div class="ts-k">배운 것</div><div class="ts-v">센서가 관측할 수 없는 것은 모델을 키워도 알 수 없습니다. <strong>정확도를 목표로 잡을지, 되돌릴 수 있음을 목표로 잡을지</strong>를 먼저 정해야 했습니다.</div></div>
+          </div>
+        </div>
+
+        <div class="block" data-sec="retro">
+          <h4>Validation — 사용자 만족도 조사 22명</h4>
+          <p>라즈베리파이를 남의 집 냉장고에 설치할 수는 없어, <strong>추천·통계 기능에 한정해</strong> 22명에게 조사했습니다.</p>
+          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>항목</th><th>긍정</th><th>보통</th><th>부정</th><th>읽은 것</th></tr></thead>
+              <tbody>
+                <tr><td>정확성 — 알러지 식재료 제외</td><td><strong>22</strong></td><td class="kill">0</td><td class="kill">0</td><td>규칙 기반 제외는 의도대로 동작했다</td></tr>
+                <tr><td>사용성 — 웹 구성</td><td>7</td><td>12</td><td>3</td><td><strong>보통이 과반.</strong> 기능은 되지만 화면은 다듬지 못했다</td></tr>
+                <tr><td>사용성 — 통계 완성도</td><td>6</td><td>15</td><td>1</td><td>같은 진단</td></tr>
+                <tr><td>만족도 — 추천 레시피</td><td><strong>14</strong></td><td>5</td><td>3</td><td>추천 자체는 받아들여졌다</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:.7rem;font-size:.86rem;color:var(--muted)">
+            숫자를 보고 나서야 <strong>약점이 추천 성능이 아니라 화면</strong>이라는 게 분명해졌습니다. 조사 전에는 반대로 짐작하고 있었습니다.</p>
+        </div>
+
+        <div class="block" data-sec="retro">
+          <h4>한계 — 최종보고서에 남긴 것</h4>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>한계</th><th>무엇이 막혔나</th><th>어떻게 처리했나</th></tr></thead>
+              <tbody>
+                <tr><td>하드웨어</td><td>냉장고 전 칸에 카메라를 달아야 하는데 비용·설치가 불가</td><td>한 칸만 설치한 상황을 가정해 시스템이 성립함을 보였다</td></tr>
+                <tr><td>객체 인식</td><td>겹침·절단 시 정확 인식 불가. 인식 가능 품목 8종</td><td>가능한 범위까지만 학습하고 <strong>보정 단계로 메꿨다</strong></td></tr>
+                <tr><td>정확한 양</td><td>무게(g·kg) 단위 재료는 잔량 비교 불가 — 소고기 100g 보유 시 200g 레시피를 거를 수 없음</td><td>깊이 카메라가 있어도 난도가 높다고 보고 <strong>범위에서 제외</strong>했다</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:.8rem">향후 계획으로 남긴 것: <strong>디지털 영수증 OCR · 바코드 인식(가공식품 유통기한) · 메뉴 조합 추천 · 사용자 유형별 추천</strong>.</p>
+          <div class="callout" style="margin-top:.8rem">
+            <b>못 한 것을 못 했다고 적은 문서입니다.</b> 경진대회 출품이나 특허가 어렵다는 판단까지 보고서에 그대로 남겼습니다.
+            할 수 있는 범위를 좁게 잡고 그 안에서 끝낸 결정이, 지금도 프로젝트에 들어갈 때 가장 먼저 하는 일입니다.
+          </div>
+        </div>
+
+        <div class="block" data-sec="retro">
+          <h4>Result · Retrospective</h4>
+          <p>이미지 기반 식재료 등록 프로토타입 구현 · <strong>대한산업공학회 캡스톤디자인 경진대회 장려상</strong>.</p>
+          <div class="retro" style="margin-top:.85rem">
+            <div><span>잘한 점</span><p>서로 다른 두 인식 결과를 공통 스키마로 통일한 것. 뒷단(추천)이 입력 방식을 몰라도 되게 만들었습니다.</p></div>
+            <div><span>배운 점</span><p>모델 정확도보다 <strong>&ldquo;틀린 결과를 어떻게 되돌리나&rdquo;</strong>가 서비스 품질을 정합니다.</p></div>
+            <div><span>아쉬운 점</span><p>등록 부담을 단계 수·소요 시간으로 재보지 않고 체감으로 판단했습니다. 개선 폭을 숫자로 말할 수 없게 됐습니다.</p></div>
+            <div><span>다음에는</span><p>인식 기능을 붙일 때 <strong>보정 흐름을 인식 로직과 같은 스프린트에</strong> 넣습니다. 실패 화면을 성공 화면과 같이 그립니다.</p></div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <nav class="pager">
+    <a href="/projects/aws">← 이전 프로젝트</a>
+    <a href="/projects">전체 목록</a>
+    <a href="/projects/dero">다음 프로젝트 →</a>
+  </nav>
+</section>
+
+<!-- ══════════  FOOT  ══════════ -->
+<footer class="wrap foot" id="contact">
+  <div class="foot-grid">
+    <div>
+      <h2 class="foot-quote">Be conservative in what you do,<em>be liberal in what you accept from others.</em></h2>
+        <p class="foot-law">&mdash; Jon Postel, RFC 761 (1980)</p>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/bada0310" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://velog.io/@sungeun0310/posts" target="_blank" rel="noopener" aria-label="기술 블로그">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm3.6 4.6c-.6 0-1 .4-1 .9 0 .2 0 .3.1.5l2.4 7c.2.5.5.7 1 .7h1.3c.5 0 .8-.2 1-.7l2.4-7c0-.2.1-.3.1-.5 0-.5-.4-.9-1-.9s-.9.3-1 .8l-1.7 5.4-1.7-5.4c-.1-.5-.4-.8-1-.8Z"/></svg>
+        <span>velog</span>
+      </a>
+      <a href="mailto:pppp000310@gmail.com" aria-label="메일 보내기 — pppp000310@gmail.com" title="pppp000310@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.3l-10 5.7L2 5.8v-.3Zm0 2.6V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.1l-9.5 5.4a1 1 0 0 1-1 0L2 8.1Z"/></svg>
+        <span>Mail</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="fine">
+    이력서·상세 산출물(ERD 설계서, 아키텍처 문서, 배포 트러블슈팅 기록)은 요청 주시면 보내드립니다.<br>
+    DERO 소스는 SSAFY 사내 GitLab에 있어 외부 열람이 제한됩니다 — 공개 미러가 준비되는 대로 이 자리에 링크를 겁니다.
+  </p>
+
+  <div class="copy">
+    <span>© 2026 박성은. All rights reserved.</span>
+    <a href="#top">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

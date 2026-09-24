@@ -1,0 +1,17 @@
+# build / deploy
+.vercel/
+node_modules/
+
+# working copies
+*.bak
+_docs/
+_artifact.html
+_dgm.html
+_fold.html
+
+# the emailable copy of the PDF is generated from portfolio.pdf
+박성은_포트폴리오_2026.pdf
+
+.DS_Store
+Thumbs.db
+desktop.ini

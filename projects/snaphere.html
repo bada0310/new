@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SnapHere · 박성은</title>
+<meta name="description" content="관광데이터 활용 공모전 프로젝트. 모노레포와 브랜치 전략을 갖춘 진행 중 프로젝트.">
+<link rel="icon" href="/assets/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/"><img class="brand-av" src="/assets/avatar.webp" alt="" width="26" height="26">BADA</a>
+    <div class="nav-links">
+      <a href="/">홈</a>
+      <a href="/projects" aria-current="page">프로젝트</a>
+      <a href="/skills">기술</a>
+      <a href="/about">이력</a>
+    </div>
+    <a class="nav-cta" href="mailto:pppp000310@gmail.com">Contact</a>
+    <button class="tt" id="pl" type="button" aria-label="차분한 보기 전환" title="차분한 보기 — 모션과 장식을 끕니다">◇</button>
+    <button class="tt" id="tt" type="button" aria-label="라이트/다크 테마 전환">◐</button>
+  </div>
+</nav>
+
+<section class="wrap sec" id="top" style="--fc:var(--c-yellow)">
+  <nav class="crumb" aria-label="현재 위치"><a href="/projects">← 프로젝트</a><span class="no">10</span></nav>
+  <div class="panel" style="--fc:var(--c-yellow)">
+    <div class="panel-hd">
+      <div class="case-row">
+        <span class="tag on">진행 중</span><span class="tag">Java</span><span class="tag">Docker</span><span class="tag">Monorepo</span>
+      </div>
+      <h1>SnapHere — 관광데이터 활용 공모전</h1>
+      <div class="when">2026.04 – 진행 중</div>
+      <p class="sub">관광 공공데이터를 활용한 서비스. <strong>지금 만들고 있습니다.</strong></p>
+      <div class="facts"><span>팀 프로젝트</span><span>개발 · 협업 프로세스</span></div>
+      <div class="links"><a class="chiplink" href="https://github.com/bada0310/SnapHere" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="deep-body">
+            <div class="block" data-sec="overview">
+        <h4>진행 상황</h4>
+        <p>한국관광공사 관광데이터 활용 공모전 출품을 목표로 개발 중입니다. 결과와 회고는 마무리되는 대로 이 자리에 채웁니다.</p>
+      </div>
+<div class="block" data-sec="overview">
+        <h4>나의 활동 — 협업 구조</h4>
+        <pre class="flow">[저장소]  <b>모노레포</b> — frontend · backend · docs 를 한 저장소에
+[배포]    docker <b>compose.yml</b>
+[브랜치]  main → develop → feature/*
+[리뷰]    feature → develop <b>Merge Request</b> 필수
+[관리]    Notion — 요구사항 정의서 · API 명세</pre>
+        <p style="margin-top:.7rem">DERO에서 만든 절차(이슈 컨벤션 · API 명세 사전 정리 · PR 리뷰)를 그대로 가져와 시작했습니다. <strong>매번 새로 만들지 않아도 되는 상태</strong>가 된 것이 이 프로젝트의 출발점입니다.</p>
+      </div>
+      <div class="block" data-sec="overview">
+        <h4>핵심 성과 · Key Achievements</h4>
+        <ul class="kpi">
+          <li><b>절차를 처음부터 세우고 시작</b> DERO에서 만든 협업 절차(이슈 컨벤션 · API 명세 사전 정리 · PR 리뷰)를 그대로 가져왔습니다.
+              <strong>매번 새로 만들지 않아도 되는 상태</strong>가 된 것이 이 프로젝트의 출발점입니다</li>
+          <li><b>모노레포 구성</b> frontend · backend · docs를 <strong>한 저장소</strong>에 두어
+              요구사항 · API 명세 · 코드가 같은 히스토리 위에서 움직이게 했습니다</li>
+          <li><b>브랜치 전략과 리뷰</b> <code>main → develop → feature/*</code> 로 고정하고
+              feature에서 develop으로 갈 때 <strong>Merge Request 리뷰를 필수</strong>로 뒀습니다</li>
+          <li><b>진행 중</b> 한국관광공사 관광데이터 활용 공모전 출품을 목표로 개발 중입니다.
+              결과와 회고는 마무리되는 대로 이 자리에 채웁니다</li>
+        </ul>
+        <div class="meta2">
+          <div><span class="meta2-k">기간</span>2026.04 – 진행 중</div>
+          <div><span class="meta2-k">팀</span>팀 프로젝트</div>
+          <div><span class="meta2-k">나의 역할</span>개발 · 협업 프로세스 설계</div>
+          <div><span class="meta2-k">목표</span>관광데이터 활용 공모전 출품</div>
+        </div>
+        <div class="stack2">
+          <div><span class="stack2-k">Backend</span>Java</div>
+          <div><span class="stack2-k">Infra</span>Docker · <code>compose.yml</code></div>
+          <div><span class="stack2-k">협업</span>Git (main → develop → feature) · Merge Request 리뷰 · Notion (요구사항 정의서 · API 명세)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="pager">
+    <a href="/projects/chada">← 이전 프로젝트</a>
+    <a href="/projects">전체 목록</a>
+    <a href="/projects/vimp">다음 프로젝트 →</a>
+  </nav>
+</section>
+
+<!-- ══════════  FOOT  ══════════ -->
+<footer class="wrap foot" id="contact">
+  <div class="foot-grid">
+    <div>
+      <h2 class="foot-quote">Be conservative in what you do,<em>be liberal in what you accept from others.</em></h2>
+        <p class="foot-law">&mdash; Jon Postel, RFC 761 (1980)</p>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/bada0310" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://velog.io/@sungeun0310/posts" target="_blank" rel="noopener" aria-label="기술 블로그">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm3.6 4.6c-.6 0-1 .4-1 .9 0 .2 0 .3.1.5l2.4 7c.2.5.5.7 1 .7h1.3c.5 0 .8-.2 1-.7l2.4-7c0-.2.1-.3.1-.5 0-.5-.4-.9-1-.9s-.9.3-1 .8l-1.7 5.4-1.7-5.4c-.1-.5-.4-.8-1-.8Z"/></svg>
+        <span>velog</span>
+      </a>
+      <a href="mailto:pppp000310@gmail.com" aria-label="메일 보내기 — pppp000310@gmail.com" title="pppp000310@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.3l-10 5.7L2 5.8v-.3Zm0 2.6V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.1l-9.5 5.4a1 1 0 0 1-1 0L2 8.1Z"/></svg>
+        <span>Mail</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="fine">
+    이력서·상세 산출물(ERD 설계서, 아키텍처 문서, 배포 트러블슈팅 기록)은 요청 주시면 보내드립니다.<br>
+    DERO 소스는 SSAFY 사내 GitLab에 있어 외부 열람이 제한됩니다 — 공개 미러가 준비되는 대로 이 자리에 링크를 겁니다.
+  </p>
+
+  <div class="copy">
+    <span>© 2026 박성은. All rights reserved.</span>
+    <a href="#top">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

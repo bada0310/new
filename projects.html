@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>프로젝트 · 박성은</title>
+<meta name="description" content="Bimp, DERO, AWS 식당 예약 서비스의 케이스 스터디와 그 외 프로젝트.">
+<link rel="icon" href="/assets/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/"><img class="brand-av" src="/assets/avatar.webp" alt="" width="26" height="26">BADA</a>
+    <div class="nav-links">
+      <a href="/">홈</a>
+      <a href="/projects" aria-current="page">프로젝트</a>
+      <a href="/skills">기술</a>
+      <a href="/about">이력</a>
+    </div>
+    <a class="nav-cta" href="mailto:pppp000310@gmail.com">Contact</a>
+    <button class="tt" id="pl" type="button" aria-label="차분한 보기 전환" title="차분한 보기 — 모션과 장식을 끕니다">◇</button>
+    <button class="tt" id="tt" type="button" aria-label="라이트/다크 테마 전환">◐</button>
+  </div>
+</nav>
+<!-- ══════════  FOLDERS / SELECTED WORKS  ══════════ -->
+<section class="wrap sec" id="work">
+  <div class="sec-hd">
+    <h1>대표 프로젝트 3선</h1>
+    <p>폴더를 누르면 각 프로젝트의 상세 페이지로 넘어갑니다. 각 프로젝트는
+       <strong>문제 → 기술 의사결정(기각안 포함) → 트러블슈팅 → 결과·회고</strong> 순으로 정리했습니다.
+       숫자에는 <strong>무엇 대비인지</strong>를 같은 줄에 적었습니다.</p>
+  </div>
+
+  <div class="folders">
+    <a class="folder" style="--fc:var(--c-blue)" href="/projects/vimp">
+      <span class="folder-art" aria-hidden="true">
+        <span class="fb"></span>
+        <span class="papers">
+          <span class="paper p1">YOLO 인식</span>
+          <span class="paper p2">추천 알고리즘</span>
+          <span class="paper p3">재고 정합성</span>
+        </span>
+        <span class="ff"><span class="mark">01</span></span>
+      </span>
+      <span class="folder-cap"><span class="nm">Bimp</span><span class="yr">2024.03 – 06</span></span>
+      <span class="folder-desc">냉장고 사진 한 장으로 식재료를 등록한다. 문제를 &lsquo;추천&rsquo;이 아니라 &lsquo;등록&rsquo;으로 재정의한 졸업 프로젝트.</span>
+      <span class="folder-state">자세히 보기 →</span>
+    </a>
+
+    <a class="folder" style="--fc:var(--c-green)" href="/projects/dero">
+      <span class="folder-art" aria-hidden="true">
+        <span class="fb"></span>
+        <span class="papers">
+          <span class="paper p1">blue-green</span>
+          <span class="paper p2">Three.js</span>
+          <span class="paper p3">38MB → 378KB</span>
+        </span>
+        <span class="ff"><span class="mark">02</span></span>
+      </span>
+      <span class="folder-cap"><span class="nm">DERO</span><span class="yr">2026.07 – 08</span></span>
+      <span class="folder-desc">제품을 고르는 화면과 내 책상에 놓아보는 화면을 합쳤다. EC2 한 대에서 무중단 배포까지.</span>
+      <span class="folder-state">자세히 보기 →</span>
+    </a>
+
+    <a class="folder" style="--fc:var(--c-yellow)" href="/projects/aws">
+      <span class="folder-art" aria-hidden="true">
+        <span class="fb"></span>
+        <span class="papers">
+          <span class="paper p1">멀티 리전</span>
+          <span class="paper p2">−20%</span>
+          <span class="paper p3">OpenSearch</span>
+        </span>
+        <span class="ff"><span class="mark">03</span></span>
+      </span>
+      <span class="folder-cap"><span class="nm">AWS 예약 서비스</span><span class="yr">2024.11 – 12</span></span>
+      <span class="folder-desc">배포로 끝내지 않고 장애 추적·확장성·비용까지. &ldquo;안정성을 얼마나 살 것인가&rdquo;를 기준 문제로 놓았다.</span>
+      <span class="folder-state">자세히 보기 →</span>
+    </a></div>
+</section>
+
+<!-- ══════════  OTHER  ══════════ -->
+<section class="wrap sec" id="more">
+  <div class="sec-hd">
+    <h2>그 외 프로젝트</h2>
+    <p>태그를 눌러 분야별로 볼 수 있습니다.</p>
+  </div>
+  <div class="filters" id="filters">
+    <button type="button" data-f="all" aria-pressed="true">전체</button>
+    <button type="button" data-f="fe" aria-pressed="false">Frontend · UI/UX</button>
+    <button type="button" data-f="infra" aria-pressed="false">Infra</button>
+    <button type="button" data-f="data" aria-pressed="false">Data · AI</button>
+    <button type="button" data-f="pm" aria-pressed="false">PM · 기획</button>
+  </div>
+  <div class="grid" id="grid">
+    <article class="card" style="--fc:var(--c-pink)" data-tags="infra data pm">
+      <img class="thumb" src="/assets/lumiere-1.webp" alt="Lumière 데이터 흐름도" loading="lazy">
+      <div class="card-b">
+        <div class="card-top"><h4>Lumière</h4><span class="when">2026.05</span></div>
+        <p>퍼스널컬러 진단 결과를 화장품 추천으로 잇는 서비스. 모델과 서버를 붙이기 전에 <strong>데이터 계약을 먼저 정한</strong> 협업.
+           ngrok의 주소 변동 한계를 Cloudflare Tunnel 고정 도메인으로 해결했습니다.</p>
+        <div class="links"><a class="chiplink" href="/projects/lumiere">상세 보기 →</a></div>
+      </div>
+    </article>
+    <article class="card" style="--fc:var(--c-blue)" data-tags="fe pm">
+      <img class="thumb" src="/assets/quiz-host-monitor.webp" alt="실시간 퀴즈 출제자 모니터링 화면" loading="lazy">
+      <div class="card-b">
+        <div class="card-top"><h4>실시간 노션 퀴즈 쇼</h4><span class="when">2026.03</span></div>
+        <p>말로 하던 CS 스터디의 출제·응답·채점·집계를 실시간 웹 도구로 옮겼습니다. Notion API로 <code class="mono" style="font-size:.85em">child_database</code>를 출제자 단위로 찾아 문제화 · WebSocket 브로드캐스트.
+           준비시간 <strong>회차당 3~4시간 → 2시간</strong>.</p>
+        <div class="links"><a class="chiplink" href="/projects/quiz">상세 보기 →</a></div>
+      </div>
+    </article>
+    <article class="card" style="--fc:var(--c-green)" data-tags="data">
+      <img class="thumb" src="/assets/cafe-shap.webp" alt="SHAP 값으로 변수 기여도를 보여주는 그래프" loading="lazy">
+      <div class="card-b">
+        <div class="card-top"><h4>인천 카페 창업 도움</h4><span class="when">2025</span></div>
+        <p>예측 정확도가 아니라 <strong>&ldquo;왜 이 입지인가&rdquo;</strong>에 답하는 분석. 상권 변수 상관분석과 SHAP으로 판단 근거를 설명 가능하게 만들었습니다.</p>
+        <div class="links"><a class="chiplink" href="/projects/cafe">상세 보기 →</a></div>
+      </div>
+    </article>
+    <article class="card" style="--fc:var(--c-yellow)" data-tags="fe">
+      <div class="noimg">Unity · C# · STT</div>
+      <div class="card-b">
+        <div class="card-top"><h4>멍경찰과 냥도둑</h4><span class="when">2026.01</span></div>
+        <p>비대칭 멀티플레이 게임. 추격 중 손이 이동·아이템에 묶여 있어 <strong>음성(STT)이 유일하게 남은 입력 채널</strong>이었습니다.
+           명령을 강아지가 실제로 할 수 있는 행동 5종에 1:1로 대응시켜 &ldquo;말한 대로 안 되는&rdquo; 경험을 없앴습니다.</p>
+        <div class="links"><a class="chiplink" href="/projects/pawlice">상세 보기 →</a></div>
+      </div>
+    </article>
+    <article class="card" style="--fc:var(--c-pink)" data-tags="data">
+      <div class="noimg">PyTorch · CNN / RNN / LSTM</div>
+      <div class="card-b">
+        <div class="card-top"><h4>ChADa — AI 연구 스터디</h4><span class="when">2023.07</span></div>
+        <p>한국외국어대학교 교내 스터디. 논문 리뷰 → 모델 직접 구현 → 발표를 2년간 반복했습니다. 읽은 것을 돌려보기 전에는 안다고 하지 않는 습관이 여기서 생겼습니다. <strong>저장소는 정리 중</strong>이라 자료 요청으로 받습니다.</p>
+        <div class="links"><a class="chiplink" href="/projects/chada">상세 보기 →</a></div>
+      </div>
+    </article>
+    <article class="card" style="--fc:var(--c-blue)" data-tags="data">
+      <img class="thumb" src="/assets/cafe-flow.webp" alt="데이터 처리 파이프라인 흐름도" loading="lazy">
+      <div class="card-b">
+        <div class="card-top"><h4>졸업논문 · 산업공학</h4><span class="when">2025</span></div>
+        <p>공정과 서비스 흐름에서 낭비 지점을 찾아 재설계하는 방법론. 지금도 프로젝트에 들어가면 먼저 <strong>AS-IS를 계측</strong>하는 습관의 출처입니다.</p>
+        <div class="links"><a class="chiplink" href="/projects/vimp">상세 보기 →</a></div>
+      </div>
+    </article>
+    <article class="card" style="--fc:var(--c-pink)" data-tags="data">
+      <div class="noimg">PyTorch · NCF · MovieLens</div>
+      <div class="card-b">
+        <div class="card-top"><h4>영화 추천 시스템 (NCF)</h4><span class="when">2025</span></div>
+        <p>GMF와 NNMF를 나란히 만들어 <strong>학습 성능이 아니라 일반화 성능으로</strong> 골랐습니다. 데이터분석특론 팀 프로젝트.</p>
+        <div class="links"><a class="chiplink" href="/projects/movierec">상세 보기 →</a></div>
+      </div>
+    </article>
+    <article class="card" style="--fc:var(--c-yellow)" data-tags="fe infra">
+      <div class="noimg">Java · Docker · Monorepo</div>
+      <div class="card-b">
+        <div class="card-top"><h4>SnapHere <span class="wip">진행 중</span></h4><span class="when">2026</span></div>
+        <p>관광데이터 활용 공모전 프로젝트. 모노레포 · <code class="mono" style="font-size:.85em">main → develop → feature</code> · MR 리뷰로 굴러갑니다.</p>
+        <div class="links"><a class="chiplink" href="/projects/snaphere">상세 보기 →</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+<!-- ══════════  FOOT  ══════════ -->
+<footer class="wrap foot" id="contact">
+  <div class="foot-grid">
+    <div>
+      <h2 class="foot-quote">Be conservative in what you do,<em>be liberal in what you accept from others.</em></h2>
+        <p class="foot-law">&mdash; Jon Postel, RFC 761 (1980)</p>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/bada0310" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://velog.io/@sungeun0310/posts" target="_blank" rel="noopener" aria-label="기술 블로그">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm3.6 4.6c-.6 0-1 .4-1 .9 0 .2 0 .3.1.5l2.4 7c.2.5.5.7 1 .7h1.3c.5 0 .8-.2 1-.7l2.4-7c0-.2.1-.3.1-.5 0-.5-.4-.9-1-.9s-.9.3-1 .8l-1.7 5.4-1.7-5.4c-.1-.5-.4-.8-1-.8Z"/></svg>
+        <span>velog</span>
+      </a>
+      <a href="mailto:pppp000310@gmail.com" aria-label="메일 보내기 — pppp000310@gmail.com" title="pppp000310@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.3l-10 5.7L2 5.8v-.3Zm0 2.6V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.1l-9.5 5.4a1 1 0 0 1-1 0L2 8.1Z"/></svg>
+        <span>Mail</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="fine">
+    이력서·상세 산출물(ERD 설계서, 아키텍처 문서, 배포 트러블슈팅 기록)은 요청 주시면 보내드립니다.<br>
+    DERO 소스는 SSAFY 사내 GitLab에 있어 외부 열람이 제한됩니다 — 공개 미러가 준비되는 대로 이 자리에 링크를 겁니다.
+  </p>
+
+  <div class="copy">
+    <span>© 2026 박성은. All rights reserved.</span>
+    <a href="#top">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

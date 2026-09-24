@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>박성은 포트폴리오</title>
+<meta name="description" content="PM · UI/UX · 인프라. Bimp, DERO, AWS 예약 서비스를 판단 근거와 트러블슈팅까지 정리한 박성은의 포트폴리오.">
+<link rel="icon" href="/assets/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/"><img class="brand-av" src="/assets/avatar.webp" alt="" width="26" height="26">BADA</a>
+    <div class="nav-links">
+      <a href="/" aria-current="page">홈</a>
+      <a href="/projects">프로젝트</a>
+      <a href="/skills">기술</a>
+      <a href="/about">이력</a>
+    </div>
+    <a class="nav-cta" href="mailto:pppp000310@gmail.com">Contact</a>
+    <button class="tt" id="pl" type="button" aria-label="차분한 보기 전환" title="차분한 보기 — 모션과 장식을 끕니다">◇</button>
+    <button class="tt" id="tt" type="button" aria-label="라이트/다크 테마 전환">◐</button>
+  </div>
+</nav>
+
+<!-- ══════════  HERO  ══════════ -->
+<header class="wrap hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <h1>안녕하세요,<span class="nm"><b>박성은</b>입니다.</span></h1>
+      <p class="role">You can call me &ldquo;BADA&rdquo;</p>
+      <p class="hero-lede">
+        <strong class="big">상상을 만들고, 쓰임을 다시 설계합니다.</strong>
+        <span class="en">내 안의 기준은 보수적으로, 받아들이는 것은 개방적으로.</span>
+      </p>
+      <div class="cta">
+        <a class="btn pri" href="/projects">프로젝트 보기</a>
+      </div>
+    </div>
+
+    <figure class="hero-card">
+      <img src="/assets/profile.webp" alt="박성은의 프로필 사진." fetchpriority="high" width="640" height="640">
+      <a class="sticker st-gh" href="https://github.com/bada0310" target="_blank" rel="noopener" aria-label="GitHub — github.com/bada0310">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <b>GitHub</b>
+      </a>
+      <a class="sticker st-vl" href="https://velog.io/@sungeun0310/posts" target="_blank" rel="noopener" aria-label="기술 블로그 — velog.io/@sungeun0310">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm3.6 4.6c-.6 0-1 .4-1 .9 0 .2 0 .3.1.5l2.4 7c.2.5.5.7 1 .7h1.3c.5 0 .8-.2 1-.7l2.4-7c0-.2.1-.3.1-.5 0-.5-.4-.9-1-.9s-.9.3-1 .8l-1.7 5.4-1.7-5.4c-.1-.5-.4-.8-1-.8Z"/></svg>
+        <b>velog</b>
+      </a>
+    </figure>
+  </div>
+</header>
+
+<!-- ══════════  SELECTED WORKS  ══════════ -->
+<section class="wrap sec" id="work">
+  <div class="sec-hd">
+    <h2>대표 프로젝트 3선</h2>
+    <p>폴더를 누르면 케이스 스터디로 넘어갑니다. 각 프로젝트는
+       <strong>문제 → 기술 의사결정(기각안 포함) → 트러블슈팅 → 결과·회고</strong> 순으로 정리했습니다.</p>
+  </div>
+
+  <div class="folders">
+    <a class="folder" style="--fc:var(--c-blue)" href="/projects/vimp">
+      <span class="folder-art" aria-hidden="true">
+        <span class="fb"></span>
+        <span class="papers">
+          <span class="paper p1">YOLO 인식</span>
+          <span class="paper p2">추천 알고리즘</span>
+          <span class="paper p3">재고 정합성</span>
+        </span>
+        <span class="ff"><span class="mark">01</span></span>
+      </span>
+      <span class="folder-cap"><span class="nm">Bimp</span><span class="yr">2024.03 – 06</span></span>
+      <span class="folder-desc">냉장고 사진 한 장으로 식재료를 등록한다. 문제를 &lsquo;추천&rsquo;이 아니라 &lsquo;등록&rsquo;으로 재정의한 졸업 프로젝트.</span>
+      <span class="folder-state">자세히 보기 →</span>
+    </a>
+
+    <a class="folder" style="--fc:var(--c-green)" href="/projects/dero">
+      <span class="folder-art" aria-hidden="true">
+        <span class="fb"></span>
+        <span class="papers">
+          <span class="paper p1">blue-green</span>
+          <span class="paper p2">Three.js</span>
+          <span class="paper p3">38MB → 378KB</span>
+        </span>
+        <span class="ff"><span class="mark">02</span></span>
+      </span>
+      <span class="folder-cap"><span class="nm">DERO</span><span class="yr">2026.07 – 08</span></span>
+      <span class="folder-desc">제품을 고르는 화면과 내 책상에 놓아보는 화면을 합쳤다. EC2 한 대에서 무중단 배포까지.</span>
+      <span class="folder-state">자세히 보기 →</span>
+    </a>
+
+    <a class="folder" style="--fc:var(--c-yellow)" href="/projects/aws">
+      <span class="folder-art" aria-hidden="true">
+        <span class="fb"></span>
+        <span class="papers">
+          <span class="paper p1">멀티 리전</span>
+          <span class="paper p2">−20%</span>
+          <span class="paper p3">OpenSearch</span>
+        </span>
+        <span class="ff"><span class="mark">03</span></span>
+      </span>
+      <span class="folder-cap"><span class="nm">AWS 예약 서비스</span><span class="yr">2024.11 – 12</span></span>
+      <span class="folder-desc">배포로 끝내지 않고 장애 추적·확장성·비용까지. &ldquo;안정성을 얼마나 살 것인가&rdquo;를 기준 문제로 놓았다.</span>
+      <span class="folder-state">자세히 보기 →</span>
+    </a>
+  </div>
+
+  <div class="cta" style="margin-top:2.2rem">
+    <a class="btn pri" href="/projects">프로젝트 전체 보기</a>
+    <a class="btn" href="/skills">기술 스택 보기</a>
+  </div>
+</section>
+
+<!-- ══════════  TIMELINE  ══════════ -->
+<section class="wrap sec" id="timeline">
+  <div class="sec-hd">
+    <h2>지나온 순서</h2>
+    <p>프로젝트는 위, 교육 · 수상은 아래에 두었습니다. 카드를 누르면 짧은 개요가 열리고, 거기서 상세 페이지로 들어갑니다.</p>
+  </div>
+
+  <div class="tlx-wrap">
+    <div class="tlx">
+      <div class="tlx-rail">
+
+        <div class="tlx-item" style="--tc:var(--muted)" data-yr="2023"><span class="tlx-dot"></span>
+          <div class="tlx-bot"><p class="tlx-mini"><span class="k">Study</span><b>ChADa AI 연구 스터디</b>논문 리뷰 → 모델 구현 → 발표, 2년</p></div>
+        </div>
+
+        <div class="tlx-item on" style="--tc:var(--c-blue)" data-yr="2024"><span class="tlx-dot"></span>
+          <div class="tlx-top"><button type="button" class="tlx-card" data-href="/projects/vimp" data-imgs="vimp-detection,vimp-architecture,vimp-inventory" data-sum="레시피 추천을 받으려면 식재료를 하나씩 손으로 등록해야 했습니다. 문제를 추천이 아니라 등록으로 재정의하고, 냉장고 사진(YOLO)과 영수증(OCR) 두 경로를 공통 스키마로 합쳤습니다. 인식은 반드시 틀리므로 확정 전에 보정 단계를 넣었습니다. 사용자 22명 조사 · 캡스톤 경진대회 장려상.">
+            <div class="tlx-when">2024.03 – 06</div><h4>Bimp</h4>
+            <p>냉장고 사진으로 식재료 등록 · 졸업 프로젝트</p><span class="go">개요 보기 →</span></button></div>
+        </div>
+
+        <div class="tlx-item" style="--tc:var(--muted)"><span class="tlx-dot"></span>
+          <div class="tlx-bot"><p class="tlx-mini"><span class="k">Education</span><b>교보DTS Cloud DX Academy</b>810시간 · Docker · CI/CD · AWS</p></div>
+        </div>
+
+        <div class="tlx-item" style="--tc:var(--c-pink)"><span class="tlx-dot"></span>
+          <div class="tlx-bot"><p class="tlx-mini"><span class="k">Award</span><b>산업공학 경진대회 장려상</b>대한산업공학회 · Bimp</p></div>
+        </div>
+
+        <div class="tlx-item on" style="--tc:var(--c-yellow)"><span class="tlx-dot"></span>
+          <div class="tlx-top"><button type="button" class="tlx-card" data-href="/projects/aws" data-imgs="aws-architecture,aws-cost,aws-logging" data-sum="예약이 안 되는 순간이 곧 이탈입니다. 그렇다고 인프라를 무조건 키우면 그게 고정비가 됩니다. 멀티 리전 3-Tier(Active-Standby)를 고르고 Active-Active는 비용으로 기각했습니다. 예상 사용량에서 용량을 역산해 월 27만 원 대비 약 20% 절감 · 팀장 · 최우수상.">
+            <div class="tlx-when">2024.11 – 12</div><h4>AWS 예약 서비스</h4>
+            <p>멀티 리전 3-Tier · 운영비 20% 절감 · 팀장</p><span class="go">개요 보기 →</span></button></div>
+        </div>
+
+        <div class="tlx-item" style="--tc:var(--c-pink)"><span class="tlx-dot"></span>
+          <div class="tlx-bot"><p class="tlx-mini"><span class="k">Award</span><b>DX Academy 경진대회 최우수상</b>교보DTS · 4인팀 팀장</p></div>
+        </div>
+
+        <div class="tlx-item on" style="--tc:var(--c-green)" data-yr="2025"><span class="tlx-dot"></span>
+          <div class="tlx-top"><button type="button" class="tlx-card" data-href="/projects/cafe" data-imgs="cafe-shap,cafe-correlation,cafe-flow" data-sum="대표 3선에는 넣지 않았지만 흐름상 중요한 프로젝트입니다. 프로젝트 목록에서 요약과 링크를 볼 수 있습니다.">
+            <div class="tlx-when">2025</div><h4>인천 카페 창업 도움</h4>
+            <p>상권 데이터 · SHAP 기반 설명 가능한 분석</p><span class="go">개요 보기 →</span></button></div>
+        </div>
+
+        <div class="tlx-item" style="--tc:var(--muted)"><span class="tlx-dot"></span>
+          <div class="tlx-bot"><p class="tlx-mini"><span class="k">Degree</span><b>한국외국어대학교 졸업</b>산업경영공학과 학사</p></div>
+        </div>
+
+        <div class="tlx-item" style="--tc:var(--muted)"><span class="tlx-dot"></span>
+          <div class="tlx-bot"><p class="tlx-mini"><span class="k">Education</span><b>SSAFY 15기</b>925시간 · 대전</p></div>
+        </div>
+
+        <div class="tlx-item on" style="--tc:var(--c-pink)" data-yr="2026"><span class="tlx-dot"></span>
+          <div class="tlx-top"><button type="button" class="tlx-card" data-href="/projects/pawlice" data-icon="paw" data-sum="대표 3선에는 넣지 않았지만 흐름상 중요한 프로젝트입니다. 프로젝트 목록에서 요약과 링크를 볼 수 있습니다.">
+            <div class="tlx-when">2026.01 – 06</div><h4>멍경찰과 냥도둑</h4>
+            <p>비대칭 멀티플레이 · 음성(STT) 조작 · 1인</p><span class="go">개요 보기 →</span></button></div>
+        </div>
+
+        <div class="tlx-item on" style="--tc:var(--c-blue)"><span class="tlx-dot"></span>
+          <div class="tlx-top"><button type="button" class="tlx-card" data-href="/projects/quiz" data-imgs="quiz-host-monitor,quiz-home,quiz-guest-masked" data-sum="대표 3선에는 넣지 않았지만 흐름상 중요한 프로젝트입니다. 프로젝트 목록에서 요약과 링크를 볼 수 있습니다.">
+            <div class="tlx-when">2026.03 – 04</div><h4>실시간 노션 퀴즈 쇼</h4>
+            <p>스터디 준비 3~4시간 → 2시간</p><span class="go">개요 보기 →</span></button></div>
+        </div>
+        <div class="tlx-item on" style="--tc:var(--c-yellow)"><span class="tlx-dot"></span>
+          <div class="tlx-top"><button type="button" class="tlx-card" data-href="/projects/snaphere" data-icon="camera" data-sum="한국관광공사 관광데이터 활용 공모전 출품을 목표로 개발 중입니다. DERO에서 만든 협업 절차(이슈 컨벤션·API 명세 사전 정리·PR 리뷰)를 그대로 가져와 시작했습니다 — 매번 새로 만들지 않아도 되는 상태가 된 것이 이 프로젝트의 출발점입니다. 모노레포와 main → develop → feature 브랜치 전략으로 굴러갑니다.">
+            <div class="tlx-when">2026.04 –</div><h4>SnapHere</h4>
+            <p>관광데이터 공모전 · 모노레포 · 진행 중</p><span class="go">개요 보기 →</span></button></div>
+        </div>
+        <div class="tlx-item on" style="--tc:var(--c-pink)"><span class="tlx-dot"></span>
+          <div class="tlx-top"><button type="button" class="tlx-card" data-href="/projects/lumiere" data-imgs="lumiere-1,lumiere-2,lumiere-3" data-sum="대표 3선에는 넣지 않았지만 흐름상 중요한 프로젝트입니다. 프로젝트 목록에서 요약과 링크를 볼 수 있습니다.">
+            <div class="tlx-when">2026.05 – 06</div><h4>Lumière</h4>
+            <p>퍼스널컬러 진단 · 데이터 계약 선설계</p><span class="go">개요 보기 →</span></button></div>
+        </div>
+
+        <div class="tlx-item on" style="--tc:var(--c-green)"><span class="tlx-dot"></span>
+          <div class="tlx-top"><button type="button" class="tlx-card" data-href="/projects/dero" data-imgs="dero-home,dero-vesa-snap,dero-desk-resize,dero-feed" data-sum="제품을 고르는 화면과 내 책상에 놓아보는 화면을 하나로 합친 서비스입니다. EC2 한 대에서 blue-green 무중단 배포까지 끌고 갔고, 3D 에셋을 38MB에서 378KB로 줄였습니다. 배포 중 다운타임 수 초 → 0 · SSAFY 경진대회 우수상.">
+            <div class="tlx-when">2026.07 – 08</div><h4>DERO</h4>
+            <p>데스크테리어 3D 시뮬레이터 · 무중단 배포</p><span class="go">개요 보기 →</span></button></div>
+        </div>
+
+        <div class="tlx-item" style="--tc:var(--c-pink)"><span class="tlx-dot"></span>
+          <div class="tlx-bot"><p class="tlx-mini"><span class="k">Award</span><b>SSAFY 경진대회 우수상</b>DERO · 5인팀</p></div>
+        </div>
+
+      </div>
+    </div>
+    <div class="tlx-peek" id="tl-peek" hidden>
+      <button type="button" class="tlx-peek-x" id="tl-peek-x" aria-label="개요 닫기">×</button>
+      <div class="tlx-peek-when"></div>
+      <h3 class="tlx-peek-t"></h3>
+      <p class="tlx-peek-s"></p>
+      <a class="btn pri tlx-peek-go" href="#">상세 보기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════  STATS  ══════════ -->
+<div class="stats">
+  <div class="stat"><div class="n">9</div><div class="l">Projects</div><div class="s">팀 · 개인 합계</div></div>
+  <div class="stat"><div class="n">3</div><div class="l">Awards</div><div class="s">최우수 · 우수 · 장려</div></div>
+  <div class="stat"><div class="n">1,735</div><div class="l">Training Hours</div><div class="s">SSAFY 925 + 교보DTS 810</div></div>
+  <div class="stat"><div class="n">✓</div><div class="l">Open to Work</div><div class="s">2026 신입 · 즉시 가능</div></div>
+</div>
+
+<!-- ══════════  MARQUEE  ══════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span>Spring Boot</span><span class="b">AWS</span><span>Three.js</span><span>Docker</span><span class="g">Jenkins</span><span>YOLOv5</span><span>Elasticsearch</span><span class="y">Python</span><span>PyTorch</span><span class="p">Nginx</span><span>Redis</span><span>Unity</span>
+    <span>Spring Boot</span><span class="b">AWS</span><span>Three.js</span><span>Docker</span><span class="g">Jenkins</span><span>YOLOv5</span><span>Elasticsearch</span><span class="y">Python</span><span>PyTorch</span><span class="p">Nginx</span><span>Redis</span><span>Unity</span>
+  </div>
+</div>
+
+<!-- ══════════  FOOT  ══════════ -->
+<footer class="wrap foot" id="contact">
+  <div class="foot-grid">
+    <div>
+      <h2 class="foot-quote">Be conservative in what you do,<em>be liberal in what you accept from others.</em></h2>
+        <p class="foot-law">&mdash; Jon Postel, RFC 761 (1980)</p>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/bada0310" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://velog.io/@sungeun0310/posts" target="_blank" rel="noopener" aria-label="기술 블로그">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm3.6 4.6c-.6 0-1 .4-1 .9 0 .2 0 .3.1.5l2.4 7c.2.5.5.7 1 .7h1.3c.5 0 .8-.2 1-.7l2.4-7c0-.2.1-.3.1-.5 0-.5-.4-.9-1-.9s-.9.3-1 .8l-1.7 5.4-1.7-5.4c-.1-.5-.4-.8-1-.8Z"/></svg>
+        <span>velog</span>
+      </a>
+      <a href="mailto:pppp000310@gmail.com" aria-label="메일 보내기 — pppp000310@gmail.com" title="pppp000310@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.3l-10 5.7L2 5.8v-.3Zm0 2.6V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.1l-9.5 5.4a1 1 0 0 1-1 0L2 8.1Z"/></svg>
+        <span>Mail</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="fine">
+    이력서·상세 산출물(ERD 설계서, 아키텍처 문서, 배포 트러블슈팅 기록)은 요청 주시면 보내드립니다.<br>
+    DERO 소스는 SSAFY 사내 GitLab에 있어 외부 열람이 제한됩니다 — 공개 미러가 준비되는 대로 이 자리에 링크를 겁니다.
+  </p>
+
+  <div class="copy">
+    <span>© 2026 박성은. All rights reserved.</span>
+    <a href="#top">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

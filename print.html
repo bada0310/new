@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>박성은 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+@page{size:A4;margin:0}
+:root{
+  --fg:#101315; --fg2:#3d4448; --mut:#6d777c; --line:#dfe4e6; --line2:#eef1f2;
+  --bg:#fff; --soft:#f5f7f8;
+  --blue:#1b6fd0; --green:#0a8a5f; --yellow:#b07908; --pink:#c31f68;
+  --f-d:"Bricolage Grotesque","IBM Plex Sans KR",sans-serif;
+  --f-s:"IBM Plex Sans KR","Malgun Gothic",sans-serif;
+  --f-m:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-s);font-size:9.15pt;line-height:1.55;
+     letter-spacing:-.005em;word-break:keep-all}
+.pg{width:210mm;height:297mm;padding:12.5mm 15mm 12mm;position:relative;page-break-after:always;overflow:hidden}
+.pg:last-child{page-break-after:auto}
+h1,h2,h3,h4{margin:0;letter-spacing:-.03em;line-height:1.22}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+b,strong{font-weight:700}
+code{font-family:var(--f-m);font-size:.88em;background:var(--soft);padding:.05em .28em;border-radius:3px}
+
+/* running foot */
+.pg::after{content:attr(data-foot);position:absolute;left:16mm;right:16mm;bottom:7mm;
+  font-family:var(--f-m);font-size:7pt;color:var(--mut);border-top:1px solid var(--line2);padding-top:2.5mm;
+  display:flex;justify-content:space-between}
+
+/* ───── cover ───── */
+.cover{display:flex;flex-direction:column;justify-content:center;padding:26mm 18mm}
+.cover .eyebrow{font-family:var(--f-d);font-size:8pt;font-weight:700;letter-spacing:.2em;color:var(--mut);text-transform:uppercase}
+.cover h1{font-size:34pt;font-weight:700;letter-spacing:-.045em;margin:6mm 0 0;line-height:1.08}
+.cover h1 em{font-style:normal;color:var(--blue)}
+.cover .role{font-size:13pt;font-weight:500;margin-top:5mm;color:var(--fg2)}
+.cover .line{font-size:11pt;color:var(--fg2);margin-top:9mm;padding-top:6mm;border-top:2px solid var(--fg);max-width:130mm}
+.cover .line b{display:block;font-size:12.5pt;color:var(--fg);margin-bottom:2mm}
+.cover .contact{margin-top:auto;padding-top:12mm;display:grid;grid-template-columns:repeat(2,1fr);gap:2.6mm 8mm;
+  font-family:var(--f-m);font-size:8.6pt;color:var(--fg2)}
+.cover .contact span{color:var(--mut);display:inline-block;min-width:17mm}
+.cover .axes{display:flex;gap:2mm;margin-top:8mm;flex-wrap:wrap}
+.ax{font-family:var(--f-m);font-size:8pt;font-weight:700;padding:1.3mm 3.4mm;border-radius:20px;color:#fff}
+.ax.b{background:var(--blue)}.ax.g{background:var(--green)}.ax.y{background:var(--yellow)}.ax.p{background:var(--pink)}
+
+/* ───── section head ───── */
+.sh{display:flex;align-items:baseline;gap:4mm;border-bottom:1.6pt solid var(--fg);padding-bottom:2mm;margin-bottom:4mm}
+.sh .no{font-family:var(--f-d);font-size:20pt;font-weight:800;letter-spacing:-.05em;color:var(--fg)}
+.sh h2{font-size:15pt;font-weight:700}
+.sh .meta{margin-left:auto;font-family:var(--f-m);font-size:8pt;color:var(--mut);text-align:right;line-height:1.5}
+
+h3.blk{font-family:var(--f-d);font-size:8.3pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:4.4mm 0 2.2mm}
+.sh + h3.blk{margin-top:0}
+
+/* key numbers */
+.kpi{display:grid;gap:1.7mm}
+.kpi li{padding:2.1mm 2.9mm;background:var(--soft);border-left:2.4pt solid var(--ac,var(--blue));border-radius:0 2mm 2mm 0}
+.kpi b{display:block;font-family:var(--f-d);font-size:7.6pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ac,var(--blue));margin-bottom:.8mm}
+.kpi strong{color:var(--fg)}
+
+/* meta + stack */
+.mt{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6mm 7mm;margin-top:4mm;padding-top:3.4mm;border-top:1px solid var(--line)}
+.mt div{font-size:9pt;color:var(--fg2)}
+.mt span{font-family:var(--f-m);font-size:7.4pt;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);
+  display:inline-block;min-width:19mm}
+.stk{display:grid;gap:1.3mm;margin-top:3mm}
+.stk div{font-size:8.6pt;color:var(--fg2)}
+.stk span{font-family:var(--f-m);font-size:7.4pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ac,var(--blue));display:inline-block;min-width:26mm}
+
+/* decision */
+.dec{border:1px solid var(--line);border-left:2.4pt solid var(--ac,var(--blue));border-radius:0 2mm 2mm 0;padding:2.4mm 3mm;margin-bottom:2mm;page-break-inside:avoid}
+.dec .q{font-family:var(--f-d);font-size:9.6pt;font-weight:700;letter-spacing:-.02em;margin-bottom:1.6mm}
+.dec p{font-size:8.8pt;color:var(--fg2)}
+.dec p+p{margin-top:1.2mm}
+.dec .win,.dec .cost{margin-top:1.5mm;padding:1.5mm 2.2mm;border-radius:1.4mm;font-size:8.4pt}
+.dec .win{background:color-mix(in srgb,var(--ac,var(--blue)) 10%,#fff);color:var(--fg2)}
+.dec .cost{background:var(--soft);color:var(--mut)}
+.dec .win em,.dec .cost em{font-style:normal;font-family:var(--f-m);font-size:7.2pt;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;margin-right:1.6mm}
+.dec .win em{color:var(--ac,var(--blue))}
+.dec .cost em{color:var(--fg2)}
+.dec.fail{border-left-style:dashed;border-left-color:var(--yellow)}
+.dec.fail .q::before{content:"기각 · 실패";display:block;font-family:var(--f-m);font-size:7pt;font-weight:700;
+  letter-spacing:.12em;color:var(--yellow);margin-bottom:.8mm}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:8.4pt;margin-top:1.6mm}
+th{text-align:left;padding:1.8mm 2.2mm;background:var(--soft);font-family:var(--f-d);font-size:7.2pt;
+  letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+td{padding:1.8mm 2.2mm;border-bottom:1px solid var(--line2);color:var(--fg2);vertical-align:top;line-height:1.5}
+td:first-child{color:var(--fg);font-weight:600}
+td .x{color:var(--mut)}
+
+/* 6-line troubleshooting */
+.ts{border:1px solid var(--line);border-radius:1.6mm;overflow:hidden;page-break-inside:avoid}
+.ts div{display:grid;grid-template-columns:22mm 1fr;border-bottom:1px solid var(--line2)}
+.ts div:last-child{border-bottom:0}
+.ts dt{padding:1.4mm 2.2mm;background:var(--soft);font-family:var(--f-m);font-size:7.2pt;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin:0}
+.ts dd{padding:1.4mm 2.4mm;margin:0;font-size:8.6pt;color:var(--fg2);line-height:1.56}
+.ts .w dd b{color:var(--yellow)}
+
+/* retro grid */
+.retro{display:grid;grid-template-columns:1fr 1fr;gap:2.2mm;margin-top:1.6mm}
+.retro div{border:1px solid var(--line2);border-radius:1.6mm;padding:2mm 2.4mm;background:var(--soft)}
+.retro span{display:block;font-family:var(--f-d);font-size:7.2pt;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ac,var(--blue));margin-bottom:.8mm}
+.retro p{font-size:8.4pt;color:var(--fg2)}
+
+/* shots */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2mm;margin-top:1.6mm}
+.shots figure{margin:0}
+.shots img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);border-radius:1.6mm;display:block}
+.shots figcaption{font-size:7.4pt;color:var(--mut);margin-top:1.2mm;line-height:1.45}
+.plan{margin:2.2mm 0 0}
+.plan img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:1.6mm;background:#FBFBFA}
+.plan figcaption{font-size:7.4pt;color:var(--mut);margin-top:1.2mm;line-height:1.45}
+.plan figcaption b{color:var(--fg)}
+
+/* summary page bits */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.axmap{display:grid;gap:2.4mm}
+.axmap div{padding:2.6mm 3mm;border:1px solid var(--line);border-radius:1.8mm}
+.axmap b{display:block;font-family:var(--f-d);font-size:8pt;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;margin-bottom:1mm}
+.axmap p{font-size:8.6pt;color:var(--fg2)}
+.axmap.b b{color:var(--blue)}.axmap.g b{color:var(--green)}.axmap.y b{color:var(--yellow)}
+
+.hl{display:grid;grid-template-columns:repeat(2,1fr);gap:2.4mm}
+.hl>div{border:1px solid var(--line);border-radius:1.8mm;padding:2.8mm 3mm}
+.hl .n{font-family:var(--f-m);font-size:13pt;font-weight:700;letter-spacing:-.03em;color:var(--fg)}
+.hl .n i{font-style:normal;color:var(--blue)}
+.hl .k{font-size:8.4pt;color:var(--fg2);margin-top:.8mm}
+.hl .b{font-size:7.4pt;color:var(--mut);margin-top:.4mm}
+
+.tiles{display:flex;flex-wrap:wrap;gap:1.6mm;margin-top:1.6mm}
+.tiles i{font-style:normal;font-family:var(--f-m);font-size:8pt;padding:1.2mm 2.6mm;border-radius:20px;
+  border:1px solid var(--line);color:var(--fg2)}
+.tiles i.core{background:var(--fg);color:#fff;border-color:var(--fg);font-weight:700}
+
+.tl{display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:25mm 1fr;gap:3mm;padding:1.4mm 0;border-top:1px solid var(--line2)}
+.tl li:first-child{border-top:0}
+.tl .y{font-family:var(--f-m);font-size:8pt;color:var(--mut)}
+.tl b{display:block;font-size:9pt}
+.tl em{font-style:normal;display:block;font-size:8.2pt;color:var(--mut)}
+
+.note{border-left:2.4pt solid var(--ac,var(--blue));background:var(--soft);padding:2mm 2.6mm;
+  border-radius:0 1.8mm 1.8mm 0;font-size:8.6pt;color:var(--fg2);margin-top:3mm}
+.small{font-size:8pt;color:var(--mut)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ 1. COVER ═══════════ -->
+<section class="pg cover" data-foot="박성은 · Portfolio 2026 ◆ 1">
+  <h1>박성은<br><em>BADA</em></h1>
+  <p class="role">PM · UI/UX · Cloud Infra</p>
+
+  <div class="line">
+    <b>상상을 만들고, 쓰임을 다시 설계합니다.</b>
+    내 안의 기준은 보수적으로, 받아들이는 것은 개방적으로.
+  </div>
+
+  <div class="axes">
+    <span class="ax b">Frontend · UI/UX</span>
+    <span class="ax g">Infra</span>
+    <span class="ax y">Data · AI</span>
+    <span class="ax p">PM · 기획</span>
+  </div>
+
+  <div class="contact">
+    <div><span>Web</span>sungeun-portfolio.vercel.app</div>
+    <div><span>Email</span>pppp000310@gmail.com</div>
+    <div><span>GitHub</span>github.com/bada0310</div>
+    <div><span>Blog</span>velog.io/@sungeun0310</div>
+    <div><span>Service</span>www.dero.life</div>
+    <div><span>Education</span>한국외대 산업경영공학 · SSAFY 15기</div>
+  </div>
+</section>
+
+<!-- ═══════════ 2. SUMMARY ═══════════ -->
+<section class="pg" data-foot="요약 ◆ 2">
+  <div class="sh"><span class="no">00</span><h2>한 장 요약</h2>
+    <span class="meta">프로젝트 10 · 수상 3<br>교육 1,735시간</span></div>
+
+  <h3 class="blk">대표 성과</h3>
+  <div class="hl">
+    <div><div class="n">38MB <i>→</i> 378KB</div><div class="k">3D 에셋 용량</div><div class="b">원본 대비 약 1/100 · 스마트 토폴로지 경량화 (DERO)</div></div>
+    <div><div class="n">수 초 <i>→</i> 0</div><div class="k">배포 중 다운타임</div><div class="b">blue-green 전환 도입 전후 (DERO)</div></div>
+    <div><div class="n"><i>−</i>20%</div><div class="k">월 운영 비용</div><div class="b">초기 산정 27만 원 대비 · NAT Gateway 재산정 (AWS)</div></div>
+    <div><div class="n">3~4h <i>→</i> 2h</div><div class="k">스터디 회차 준비시간</div><div class="b">출제·채점·집계 자동화 (퀴즈 쇼)</div></div>
+  </div>
+
+  <h3 class="blk">직무 축별 대표 프로젝트</h3>
+  <div class="axmap b" style="margin-bottom:2.4mm">
+    <div><b>Frontend · UI/UX</b><p><strong>DERO</strong> 3D 배치 시뮬레이터 · 렌더 성능 예산 &nbsp;|&nbsp;
+      <strong>멍경찰과 냥도둑</strong> 입력 채널 설계 &nbsp;|&nbsp; <strong>실시간 퀴즈 쇼</strong> 습관을 안 바꾸는 설계</p></div>
+  </div>
+  <div class="axmap g" style="margin-bottom:2.4mm">
+    <div><b>Infra</b><p><strong>AWS 예약 서비스</strong> 멀티 리전 · 비용 구조 분해 &nbsp;|&nbsp;
+      <strong>DERO</strong> EC2 1대 무중단 배포 &nbsp;|&nbsp; <strong>Lumière</strong> 터널 고정화</p></div>
+  </div>
+  <div class="axmap y">
+    <div><b>Data · AI</b><p><strong>Bimp</strong> 인식 한계를 전제로 한 설계 &nbsp;|&nbsp;
+      <strong>영화 추천(NCF)</strong> 과적합 판정 &nbsp;|&nbsp; <strong>인천 카페</strong> 설명 가능성 우선</p></div>
+  </div>
+
+  <h3 class="blk">기술 — 주력 / 경험</h3>
+  <div class="tiles">
+    <i class="core">Python</i><i class="core">AWS</i><i class="core">Docker</i><i class="core">Nginx</i><i class="core">Jenkins</i>
+    <i>Spring Boot</i><i>Next.js</i><i>Three.js</i><i>PyTorch</i><i>YOLOv5</i><i>Elasticsearch</i><i>Redis</i>
+    <i>PostgreSQL</i><i>Django</i><i>Prometheus</i><i>Grafana</i><i>Unity</i><i>Jira</i>
+  </div>
+  <p class="small" style="margin-top:2mm">검은 칩 = <strong>주력</strong>(막혔을 때 스스로 원인을 찾아 끝까지 간 기술) · 흰 칩 = 팀 프로젝트에서 써본 기술</p>
+
+  <div class="note">
+    <b>이 문서를 읽는 법.</b> 각 프로젝트는 <b>핵심 성과 → 기술 의사결정(기각안 포함) → 트러블슈팅 → 회고</b> 순으로 정리했습니다.
+    모든 숫자에는 <b>무엇 대비인지</b>를 같은 줄에 적었고, 잘 안 된 선택은 <b>기각 · 실패</b> 표시로 따로 남겼습니다.
+    전체 내용과 다이어그램은 웹에서 볼 수 있습니다 — <code>sungeun-portfolio.vercel.app</code>
+  </div>
+</section>
+
+<!-- ═══════════ 3. DERO ═══════════ -->
+<section class="pg" style="--ac:var(--green)" data-foot="01 DERO ◆ 3">
+  <div class="sh"><span class="no">01</span><h2>DERO — 데스크테리어 3D 시뮬레이터</h2>
+    <span class="meta">2026.07 – 08 (6주)<br>5인 · 팀원 · 기여도 40%</span></div>
+
+  <p style="color:var(--fg2)">제품을 고르는 화면과 내 책상에 놓아보는 화면을 하나로 합친 서비스.
+    EC2 <strong>한 대</strong>에서 무중단 배포까지 끌고 갔습니다. <strong>SSAFY 공통 프로젝트 경진대회 우수상</strong> · 서비스 운영 중(dero.life)</p>
+
+  <h3 class="blk">핵심 성과</h3>
+  <ul class="kpi" style="--ac:var(--green)">
+    <li><b>무중단 배포</b>호스트 nginx에 포트가 하드코딩돼 제자리 교체되던 구조를 blue-green으로 재설계 — 배포 중 다운타임 <strong>수 초 → 0</strong></li>
+    <li><b>3D 에셋 파이프라인</b>원본 GLB <strong>38MB → 378KB</strong>. POC 실측으로 소품당 <strong>20K~50K 삼각형</strong> 예산 확정</li>
+    <li><b>선행 검증</b>GLB 변환·렌더링을 전체 개발 전 POC로 분리 검증 — 핵심 기능 검증 <strong>7일 → 3일</strong></li>
+    <li><b>최소 권한 배포</b>컨테이너 <code>127.0.0.1</code> 바인딩으로 평문 노출 제거, jenkins sudo는 <strong>두 명령만</strong> 허용</li>
+  </ul>
+
+  <div class="mt">
+    <div><span>나의 역할</span><strong>기획(PM)</strong> · 백엔드 · 인프라 · CI/CD</div>
+    <div><span>제약</span>EC2 1대 · 운영 인력 1명 · 6주</div>
+  </div>
+  <div class="stk" style="--ac:var(--green)">
+    <div><span>Frontend</span>Next.js (SSR) · Three.js · glTF/GLB · KTX2</div>
+    <div><span>Backend</span>Spring Boot · PostgreSQL (JSONB) · Redis · Elasticsearch · Flyway</div>
+    <div><span>DevOps</span>EC2 · Docker Compose · Jenkins · Nginx (blue-green)</div>
+    <div><span>Observability</span>Prometheus · Grafana · Filebeat · Kibana</div>
+  </div>
+
+  <figure class="plan">
+    <img src="assets/dero-pipeline.webp" alt="">
+    <figcaption><b>무중단 배포 파이프라인</b> — MR 하나가 머지되면 사람이 서버에 들어가지 않는다.
+      포트 두 벌(blue 3000/8081 · green 3010/8091)을 번갈아 쓰고, 헬스체크를 통과한 뒤에만 nginx upstream을 스위치한다.
+      통과하지 못하면 green을 폐기하고 blue를 유지 — 트래픽이 전환되지 않으므로 요청 단절이 없다.</figcaption>
+  </figure>
+
+  <div class="shots">
+    <figure><img src="assets/dero-home.webp" alt=""><figcaption>제품 탐색 → 상세 → 3D 배치를 하나의 시나리오로 고정</figcaption></figure>
+    <figure><img src="assets/dero-vesa-snap.webp" alt=""><figcaption>VESA 마운트홀이 맞을 때만 스냅 — 호환성은 규격 문제</figcaption></figure>
+    <figure><img src="assets/dero-desk-resize.webp" alt=""><figcaption>실측 치수로 책상을 맞춘 뒤 배치</figcaption></figure>
+  </div>
+</section>
+
+<section class="pg" style="--ac:var(--green)" data-foot="01 DERO · 기술 의사결정 ◆ 4">
+  <div class="sh"><span class="no">01</span><h2>DERO · 기술 의사결정</h2></div>
+
+  <div class="dec">
+    <div class="q">Q. 수많은 프레임워크 중에 왜 Next.js인가</div>
+    <p>이 서비스의 유입 경로가 검색이기 때문입니다. 성장 축이 &lsquo;커뮤니티 게시글 → 제품 → 탐색&rsquo; 순환인데,
+       게시글이 검색에 걸리지 않으면 이 순환의 입구가 없습니다. CSR이면 크롤러가 받아가는 건 빈 HTML입니다.</p>
+    <p>그래서 <strong>&ldquo;React를 쓰자&rdquo;가 아니라 &ldquo;SSR을 해야 한다&rdquo;가 먼저</strong>였습니다. Vite SPA는 SEO 포기, SSG는 게시글·재고가 수시로 바뀌어 기각했습니다.</p>
+    <p class="win"><em>성과</em>커뮤니티 게시글이 검색에 노출 — 유입 순환의 입구 확보</p>
+    <p class="cost"><em>감수</em>EC2 한 대에 Node 런타임이 상주합니다. Jenkins·Postgres·Redis·ES가 이미 올라간 인스턴스라 메모리 여유가 줄었습니다.</p>
+  </div>
+
+  <div class="dec">
+    <div class="q">Q. 왜 PostgreSQL 하나인가 — MongoDB + MySQL로 나눌 생각은 안 했나</div>
+    <p>했고, 그게 교과서적인 답처럼 보였습니다. 그런데 조회 단위를 그려보니 안 맞았습니다.
+       <strong>모델 하나를 불러올 때 GLB(비정형)와 관절 좌표·VESA 규격·치수(정형)를 한 번에</strong> 가져와야 배치와 호환성 판정이 됩니다.</p>
+    <p>둘을 다른 저장소에 두면 모델 1건 조회에 두 DB를 왕복하고 트랜잭션 경계가 갈라집니다.
+       PostgreSQL은 JSONB로 비정형을 담으면서 관계형 제약을 유지해 <strong>한 쿼리로 끝납니다.</strong></p>
+    <p class="win"><em>성과</em>모델 1건 조회가 한 쿼리로 완료. 운영 인원 1명 기준 관리 대상 DB도 한 벌</p>
+    <p class="cost"><em>감수</em>대용량 문서 저장·샤딩은 MongoDB보다 불리. 수십만 건대로 커지면 다시 봐야 합니다.</p>
+  </div>
+
+  <div class="dec fail">
+    <div class="q">Q. Draco가 더 좋은데 왜 안 썼나</div>
+    <p><strong>Draco가 지오메트리 압축에서 더 효율적이고 성능도 확실합니다.</strong> 이건 우리가 더 잘 알아본 결과가 아니라 그냥 사실입니다.</p>
+    <p>문제는 조합이었습니다. 텍스처는 KTX2로 가기로 정해져 있었는데,
+       <strong>three.js에서 Draco 로더와 KTX2 로더를 같이 무는 지점이 매끄럽지 않았습니다.</strong> 6주 안에 둘 다 안정적으로 붙는다는 확신이 없었습니다.</p>
+    <p>그래서 확실히 붙는 축 하나(KTX2)만 가져가고 폴리곤은 토폴로지 단순화로 줄였습니다.</p>
+    <p class="cost"><em>판단</em>기술적 우열로 진 결정이 아니라 <b>기간 안에 검증 가능한 범위로 물러선 결정</b>입니다. 다시 한다면 그 연결부터 스파이크로 떼어내 검증하고 시작하겠습니다.</p>
+  </div>
+
+  <div class="dec">
+    <div class="q">Q. 압축은 왜 무조건 많이 하면 안 되나</div>
+    <p>인코딩·디코딩을 더하면 전송량은 줄지만 <strong>클라이언트에서 디코딩하는 시간만큼 호출 시간이 늘어납니다.</strong>
+       용량과 초기 렌더 시간을 맞바꾸는 거래라서, 압축률이 곧 답은 아니었습니다.</p>
+    <p>POC로 텍스처 프로필을 재고 골랐습니다 — 경량 21.3 / 균형 42.6 / 고품질 47.9 MiB. <strong>MVP 기본값은 경량</strong>, 나머지는 지연 로드.</p>
+    <p class="win"><em>성과</em>소품당 20K~50K 삼각형 예산 확정. 감이 아니라 측정값으로 기본 프로필 결정</p>
+    <p class="cost"><em>감수</em>회전 중에는 디테일을 낮춥니다 — 시점 고정이 목표이지 회전 중 디테일이 목표는 아니라고 봤습니다.</p>
+  </div>
+
+  <div class="dec">
+    <div class="q">Q. 관측에 왜 Prometheus + Grafana인가</div>
+    <p>솔직하게 말하면 <strong>비용 때문입니다.</strong> 관리형 APM은 호스트 단위 월 고정비가 붙습니다. 학생 팀 프로젝트에서 관측에 구독료를 쓸 수 없었습니다.</p>
+    <p class="win"><em>성과</em>관측 스택 추가 과금 0원. 메트릭과 로그를 분리해 EC2 안에서 완결</p>
+    <p class="cost"><em>감수</em><b>서버가 죽으면 관측 도구도 같이 죽습니다</b> — 정작 장애 순간에 못 보는 구조라는 걸 알면서 선택했습니다. 예산이 있었다면 관측만큼은 서비스와 같은 서버에 두지 않았을 것입니다.</p>
+  </div>
+</section>
+
+<section class="pg" style="--ac:var(--green)" data-foot="01 DERO · 트러블슈팅 · 회고 ◆ 5">
+  <div class="sh"><span class="no">01</span><h2>DERO · 트러블슈팅 · 회고</h2></div>
+
+  <h3 class="blk">배포할 때마다 서비스가 몇 초씩 끊겼다</h3>
+  <dl class="ts">
+    <div><dt>증상</dt><dd>배포할 때마다 서비스가 몇 초씩 끊겼습니다.</dd></div>
+    <div class="w"><dt>처음 가설</dt><dd>Jenkins 배포 스크립트가 느려서라고 봤습니다. <b>틀렸습니다</b> — 스크립트를 줄여도 끊김은 그대로였습니다.</dd></div>
+    <div><dt>실제 원인</dt><dd>nginx가 호스트에 있고 <code>127.0.0.1:3000·8081</code>이 하드코딩돼 있어, <code>docker compose -p dero up -d</code>가 <strong>같은 컨테이너를 제자리 교체</strong>하고 있었습니다. 구조상 끊길 수밖에 없었습니다.</dd></div>
+    <div><dt>어떻게 찾았나</dt><dd>배선을 위에서 아래로 되짚었습니다 — nginx conf의 <code>proxy_pass</code> → compose 포트 바인딩 → Jenkinsfile의 <code>-p</code> 프로젝트명.</dd></div>
+    <div><dt>해결</dt><dd>포트 변수화 + compose의 <code>name: dero</code> 삭제 + upstream conf 두 벌 + <code>deploy-switch.sh</code>. health 폴링을 통과해야만 트래픽이 넘어가고, 실패하면 blue가 그대로 유지됩니다.</dd></div>
+    <div><dt>배운 것</dt><dd>무중단 배포는 &lsquo;배포 도구&rsquo; 문제가 아니라 <strong>&lsquo;포트와 라우팅&rsquo; 문제</strong>였습니다. 그리고 구조를 바꾸면 <strong>관측도 따라 흔들립니다.</strong></dd></div>
+  </dl>
+
+  <h3 class="blk">알려진 부작용까지 기록했습니다</h3>
+  <p style="font-size:8.8pt;color:var(--fg2)">Prometheus가 <code>backend:8080</code>을 노려, blue·green이 겹치는 수십 초 동안 지표가 두 버전 사이를 라운드로빈합니다.
+     색별 별칭 + 타깃 2개로 갈 수 있지만 평상시 한쪽이 DOWN으로 뜹니다. <strong>겹침 창이 짧아 문서에 남기는 쪽</strong>을 택했습니다.</p>
+
+  <h3 class="blk">팀 리딩</h3>
+  <p style="font-size:8.8pt;color:var(--fg2)">각자 무엇을 하는지 주 단위로만 알 수 있어 겹치는 작업과 대기가 생겼습니다. 사람이 아니라 구조 문제였습니다 — 업무 단위가 &lsquo;기능&rsquo;이라 병렬화가 안 됐습니다.
+     주간/데일리 스크럼 · Jira 이슈 컨벤션 + 스토리 포인트 · API 명세 사전 정리를 제안했습니다.
+     <strong>결과: 요구 기능이 3개 → 6개로 늘었을 때 기존 스토리에 추가만으로 대응, 일정 지연 없음.</strong></p>
+
+  <h3 class="blk">회고</h3>
+  <div class="retro" style="--ac:var(--green)">
+    <div><span>잘한 점</span><p>코드보다 <strong>ADR을 먼저 썼습니다.</strong> blue-green을 켜기 전 마이그레이션 정책부터 정한 덕에 첫 스키마 변경에서 파이프라인이 멈추지 않았습니다.</p></div>
+    <div><span>아쉬운 점</span><p><strong>메모리 실측이 뒤였습니다.</strong> 6개 프로세스가 이미 올라간 EC2에 한 벌을 더 띄우는 결정을 <code>free -m</code>을 보기 전에 내렸습니다.</p></div>
+    <div><span>배운 점</span><p>발표 리허설에서 &ldquo;경량화를 어떻게 했는지 설명이 없다&rdquo;는 지적을 받았습니다. <strong>판단은 했는데 판단의 기준을 남기지 않은 것</strong>이 문제였습니다.</p></div>
+    <div><span>다음에는</span><p><strong>자원 실측 → 정책(ADR) → 코드</strong> 순서로 갑니다. 결과 숫자를 쓸 때 기준을 같은 줄에 적습니다.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════ 4. AWS ═══════════ -->
+<section class="pg" style="--ac:var(--yellow)" data-foot="02 AWS 식당 예약 서비스 ◆ 6">
+  <div class="sh"><span class="no">02</span><h2>AWS 식당 예약 서비스</h2>
+    <span class="meta">2024.11 – 12<br>4인 (BE 2 · FE 2) · 팀장 · 60%</span></div>
+
+  <p style="color:var(--fg2)">배포로 끝내지 않고 장애 추적·확장성·비용까지 관리 가능한 구조로.
+    <strong>&ldquo;안정성을 얼마나 살 것인가&rdquo;</strong>를 기술 선택이 아니라 기준 설정 문제로 놓았습니다.
+    <strong>Cloud DX Academy 프로젝트 경진대회 최우수상</strong></p>
+
+  <h3 class="blk">핵심 성과</h3>
+  <ul class="kpi" style="--ac:var(--yellow)">
+    <li><b>비용 구조 분해</b>산정표를 항목별로 뜯어 <strong>NAT Gateway가 단일 최대 항목(월 약 $160)</strong>임을 특정 — ALB $48, EC2 $47을 합친 것보다 큼. &ldquo;트래픽이 없어도 나가는 고정비&rdquo;부터 재산정 → <strong>약 20% 절감</strong></li>
+    <li><b>리전 장애 대응</b>멀티 리전 3-Tier <strong>Active-Standby</strong>. Active-Active는 고정비 두 배라 명시적 기각</li>
+    <li><b>서비스 디스커버리</b>오토스케일링으로 IP가 바뀔 때마다 끊기던 라우팅을 <strong>ECS Service Connect</strong>로 — 수동 갱신 <strong>0회</strong></li>
+    <li><b>분산 로그 중앙화</b><strong>Fluent Bit 사이드카 → OpenSearch → Kibana + Slack</strong>으로 &ldquo;어디서 터졌는지 모르는&rdquo; 상태 해소</li>
+  </ul>
+
+  <div class="mt">
+    <div><span>나의 역할</span>팀장 / 클라우드 인프라 아키텍트 / 백엔드</div>
+    <div><span>먼저 한 일</span>허용 다운타임과 월 예산 상한을 팀 합의로 확정</div>
+  </div>
+  <div class="stk" style="--ac:var(--yellow)">
+    <div><span>Backend</span>Java · Docker · REST API</div>
+    <div><span>Data</span>Aurora (예약 · 정합성) · DynamoDB (조회 · 세션)</div>
+    <div><span>DevOps</span>ECS · Fargate · ALB · CloudFront · Route 53 · VPC · NAT Gateway</div>
+    <div><span>Observability</span>CloudWatch · Fluent Bit · OpenSearch · Kibana · Slack</div>
+  </div>
+
+  <figure class="plan">
+    <img src="assets/aws-arch-single.webp" alt="">
+    <figcaption><b>단일 리전</b> — 열려야 하는 것(CloudFront · ALB)과 열리면 안 되는 것(DB · 앱)을 서브넷으로 물리 분리.
+      감수한 것은 NAT 게이트웨이 비용. 컨테이너는 재시작되므로 로그를 stdout으로 밖에 뻐다.</figcaption>
+  </figure>
+
+  <div class="shots">
+    <figure><img src="assets/aws-architecture.webp" alt=""><figcaption>3-Tier × 멀티 리전. 외부에 열리는 건 ALB까지</figcaption></figure>
+    <figure><img src="assets/aws-cost.webp" alt=""><figcaption>예상 사용량에서 리소스별 적정 용량 역산</figcaption></figure>
+    <figure><img src="assets/aws-logging.webp" alt=""><figcaption>Fluent Bit 사이드카 → OpenSearch</figcaption></figure>
+  </div>
+
+  <div class="note" style="--ac:var(--yellow)">
+    <b>기준이 없으면 모든 확장이 정당해 보입니다.</b> 안정성은 사고 싶은 만큼 살 수 있어서 상한선이 없으면 끝없이 커집니다.
+    그래서 구성을 정하기 전에 <b>허용 다운타임과 월 예산 상한</b>을 숫자로 먼저 합의했고, 이후 모든 선택을 그 기준으로 판정했습니다.
+  </div>
+</section>
+
+<section class="pg" style="--ac:var(--yellow)" data-foot="02 AWS · 기술 의사결정 · 회고 ◆ 7">
+  <div class="sh"><span class="no">02</span><h2>AWS · 기술 의사결정</h2></div>
+
+  <h3 class="blk">구성 대안 비교</h3>
+  <table>
+    <thead><tr><th style="width:38%">대안</th><th>얻는 것</th><th>치르는 것</th><th style="width:14%">판정</th></tr></thead>
+    <tbody>
+      <tr><td>A. 단일 리전 + 백업</td><td>가장 저렴</td><td>리전 장애 시 서비스 전체 정지</td><td class="x">기각</td></tr>
+      <tr><td>B. 멀티 리전 Active-Active</td><td>전환 시간 거의 0</td><td>두 리전 상시 구동 → <strong>고정비 두 배</strong></td><td class="x">기각</td></tr>
+      <tr><td>C. 멀티 리전 3-Tier (Active-Standby)</td><td>리전 장애 대응 범위 확보</td><td>전환 시간 · 복제 지연</td><td><strong>채택</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="dec" style="margin-top:4mm">
+    <div class="q">Q. 왜 ECS + Fargate인가 — EC2 직접 관리와 EKS를 두고</div>
+    <p>선택 기준은 단 하나, <strong>&ldquo;운영할 사람이 없다&rdquo;</strong> 였습니다.
+       EC2 직접 배포는 OS 패치·스케일·헬스체크가 전부 우리 몫이고, EKS는 컨트롤 플레인 고정비에 학습·운영 비용이 프로젝트 기간을 넘겼습니다.</p>
+    <p class="win"><em>성과</em>서버 인스턴스를 관리 대상에서 제거 — 인프라 전담 없이도 배포가 돌아감</p>
+    <p class="cost"><em>감수</em>AWS 종속이 깊어집니다. 기간과 인력이 제약인 프로젝트에서 <b>이식성은 지금 사지 않아도 되는 보험</b>이라고 판단했습니다.</p>
+  </div>
+
+  <div class="dec">
+    <div class="q">Q. Aurora와 DynamoDB를 왜 같이 쓰나</div>
+    <p><strong>예약</strong>은 중복이 생기면 안 되는 <strong>정합성</strong> 문제이고, <strong>조회·세션</strong>은 요청이 몰리는 <strong>속도</strong> 문제입니다.
+       하나로 통일하면 둘 중 하나는 잘못된 도구를 씁니다.</p>
+    <p class="cost"><em>기준</em>DERO에서는 정반대로 PostgreSQL 하나로 합쳤습니다. 거기선 두 성격의 데이터를 <b>같은 조회에서 같이</b> 봐야 했고, 여기선 <b>서로 다른 요청 경로</b>에 있었습니다.
+      기준은 &lsquo;데이터의 종류&rsquo;가 아니라 <b>&lsquo;같이 조회되는가&rsquo;</b> 였습니다.</p>
+  </div>
+
+  <h3 class="blk">트러블슈팅 — 뒷단으로 가는 요청이 간헐적으로 실패했다</h3>
+  <dl class="ts">
+    <div><dt>증상</dt><dd>게이트웨이에서 뒷단으로 가는 요청이 간헐적으로 실패했습니다.</dd></div>
+    <div class="w"><dt>처음 가설</dt><dd>백엔드가 죽었다고 봤습니다. <b>틀렸습니다</b> — 태스크는 살아 있었고 주소만 바뀌어 있었습니다.</dd></div>
+    <div><dt>실제 원인</dt><dd>오토스케일링으로 컨테이너가 재생성될 때마다 <strong>IP가 변경</strong>됐습니다.</dd></div>
+    <div><dt>기각한 안</dt><dd>IP 고정은 <strong>오토스케일링을 포기하는 것</strong>과 같고, 서비스마다 내부 ALB는 또 다른 고정비였습니다.</dd></div>
+    <div><dt>해결</dt><dd><strong>ECS Service Connect</strong> — IP를 고정하는 방향이 아니라 <strong>이름으로 찾는 방향</strong>으로 바꿨습니다.</dd></div>
+    <div><dt>배운 것</dt><dd>&ldquo;주소가 변한다&rdquo;를 막을 문제로 보지 않고 <strong>전제로 받아들이자</strong> 해법이 바뀌었습니다.</dd></div>
+  </dl>
+
+  <h3 class="blk">회고</h3>
+  <div class="retro" style="--ac:var(--yellow)">
+    <div><span>잘한 점</span><p>구성을 정하기 전에 <strong>비용과 안정성의 기준을 팀 합의로 먼저 정한 것.</strong> 이후 모든 선택이 그 기준으로 판정됐습니다.</p></div>
+    <div><span>아쉬운 점</span><p>관측을 <strong>설계 단계가 아니라 문제를 겪은 뒤에</strong> 붙였습니다. 실제 부하도 재보지 않고 예상 사용량만으로 산정했습니다.</p></div>
+    <div><span>배운 점</span><p>관측은 기능이 아니라 <strong>전제</strong>입니다. 분산 환경에서 &ldquo;어디서 터졌는지 모른다&rdquo;는 상태 자체가 장애입니다.</p></div>
+    <div><span>다음에는</span><p>컨테이너를 2개 이상 띄우기로 결정한 <strong>그 시점에 로그 경로를 같은 그림에</strong> 그립니다.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════ 5. Bimp ═══════════ -->
+<section class="pg" style="--ac:var(--blue)" data-foot="03 Bimp ◆ 8">
+  <div class="sh"><span class="no">03</span><h2>Bimp — 냉장고 식자재 인식 · 레시피 추천</h2>
+    <span class="meta">2024.03 – 06 (3개월)<br>4인 (PM·앱 1 · 웹 1 · AI 2) · 40%</span></div>
+
+  <p style="color:var(--fg2)">직접 입력의 불편을 이미지 인식으로 줄인 졸업 프로젝트.
+    문제를 &lsquo;추천&rsquo;이 아니라 <strong>&lsquo;등록&rsquo;</strong>으로 재정의한 데서 모든 설계가 따라 나왔습니다.
+    <strong>대한산업공학회 캡스톤디자인 경진대회 장려상</strong></p>
+
+  <h3 class="blk">핵심 성과</h3>
+  <ul class="kpi" style="--ac:var(--blue)">
+    <li><b>문제 재정의</b>팀이 &lsquo;추천 정확도&rsquo;를 보고 있을 때 병목이 <strong>그 이전 단계인 &lsquo;등록&rsquo;</strong>에 있다고 짚고 스코프를 옮겼습니다</li>
+    <li><b>이종 인식 결과 통합</b>객체 인식(YOLOv5)과 문자 인식(OCR)을 한 모델에 합치지 않고 <strong>출력 형식만 공통 스키마로 통일</strong> — 뒷단이 입력 방식을 몰라도 됨</li>
+    <li><b>인식 한계를 전제로 한 설계</b>깊이 카메라·RFID를 각각 비용·현실성으로 기각한 뒤, 인식 범위를 <strong>8종으로 좁혀</strong> 확실한 것만 자동 처리하고 <strong>보정 단계</strong>를 넣었습니다</li>
+    <li><b>사용자 검증 22명</b>정확성 <strong>22/0/0</strong>, 추천 만족 <strong>14/5/3</strong>, 사용성은 보통이 과반 — 숫자를 보고 나서야 <strong>약점이 추천이 아니라 화면</strong>임이 드러났습니다</li>
+  </ul>
+
+  <div class="mt">
+    <div><span>나의 역할</span>YOLO 인식 모델 · 추천 알고리즘 · 재고 로직</div>
+    <div><span>제약</span>학습 GPU 없음 · 카메라 1대 · 3개월</div>
+  </div>
+  <div class="stk" style="--ac:var(--blue)">
+    <div><span>AI · Vision</span>YOLOv5 · PyTorch · Google Colab</div>
+    <div><span>Backend</span>Django · SQLite3 · REST API</div>
+    <div><span>Device</span>Raspberry Pi · 카메라 모듈 · 마그네틱 센서</div>
+  </div>
+
+  <div class="shots">
+    <figure><img src="assets/vimp-detection.webp" alt=""><figcaption>냉장고 내부에서 식재료 후보 검출 — 반드시 틀리므로 보정 전제</figcaption></figure>
+    <figure><img src="assets/vimp-architecture.webp" alt=""><figcaption>두 입력 경로를 하나의 공통 스키마로 합류</figcaption></figure>
+    <figure><img src="assets/vimp-inventory.webp" alt=""><figcaption>추가·삭제·수정을 분리한 보정 화면</figcaption></figure>
+  </div>
+
+  <h3 class="blk">트러블슈팅 — 겹치거나 잘린 식재료를 인식하지 못했다</h3>
+  <dl class="ts">
+    <div><dt>증상</dt><dd>겹쳐 있거나 반 개로 잘린 식재료의 개수가 틀리게 잡혔습니다. 재고가 틀리면 추천 전체가 무의미해집니다.</dd></div>
+    <div class="w"><dt>처음 가설</dt><dd>학습 데이터를 늘리면 해결된다고 봤습니다. <b>틀렸습니다</b> — 데이터 양의 문제가 아니었습니다.</dd></div>
+    <div><dt>실제 원인</dt><dd>단안 카메라에는 <strong>깊이 정보가 없습니다.</strong> 가려지면 뒤에 무엇이 몇 개 있는지 원리상 알 수 없습니다.</dd></div>
+    <div><dt>기각한 안</dt><dd>① <strong>3D 깊이 카메라</strong> — 깊이는 얻지만 전 칸 설치 시 예산 초과 &nbsp;② <strong>RFID 태그</strong> — 장 볼 때마다 부착해야 해서 원래 문제(등록이 번거롭다)를 더 키움</dd></div>
+    <div><dt>해결</dt><dd>정확도를 올리는 대신 <strong>틀릴 것을 전제로 흐름을 바꿨습니다.</strong> 인식 8종으로 축소 + 확정 전 보정 단계 + 검증 범위를 한 칸으로 한정.</dd></div>
+    <div><dt>배운 것</dt><dd>센서가 관측할 수 없는 것은 모델을 키워도 알 수 없습니다. <strong>&lsquo;정확하게&rsquo;와 &lsquo;틀려도 되돌릴 수 있게&rsquo;는 다른 목표</strong>이고, 어느 쪽인지 먼저 정했어야 했습니다.</dd></div>
+  </dl>
+</section>
+
+<!-- ═══════════ 6. OTHERS ═══════════ -->
+<section class="pg" data-foot="그 외 프로젝트 ◆ 9">
+  <div class="sh"><span class="no">04</span><h2>그 외 프로젝트</h2>
+    <span class="meta">상세 내용은 웹에서<br>sungeun-portfolio.vercel.app</span></div>
+
+  <div class="dec" style="--ac:var(--pink)">
+    <div class="q">Lumière — 퍼스널컬러 진단 · 화장품 추천 &nbsp;<span class="small">2026.05–06 · 2인</span></div>
+    <p>진단은 받아도 &ldquo;그래서 뭘 사야 하나&rdquo;로 이어지지 않는 빈 칸을 메운 서비스. 2인 팀이라 코드 이전에
+       <strong>모델 출력 스키마와 서버 입력 스키마를 문서로 먼저 확정</strong>했고, 덕분에 모델 정확도를 손보는 동안 서버가 멈추지 않았습니다.</p>
+    <p class="win"><em>성과</em>재시작마다 바뀌던 ngrok 주소를 <strong>Cloudflare Tunnel 고정 도메인</strong>으로 전환 — 갱신 지점 3곳(프론트 <code>.env</code>·OAuth Redirect·CORS)이 한 번만 설정하는 값이 됨</p>
+    <p class="cost"><em>배운 것</em>휴먼 에러를 줄이는 방법은 &ldquo;조심하기&rdquo;가 아니라 <b>바뀌는 값을 안 바뀌게 만드는 것</b>이었습니다. 증상이 4종이라 원인도 4개인 줄 알았는데 전부 같은 원인이었습니다.</p>
+  </div>
+
+  <div class="dec" style="--ac:var(--blue)">
+    <div class="q">실시간 노션 퀴즈 쇼 — 스터디 운영 자동화 &nbsp;<span class="small">2026.03–04 · 개인</span></div>
+    <p>전용 출제 페이지를 만들면 &lsquo;정리 → 옮겨적기&rsquo; 단계가 늘어 줄이려던 시간을 다시 씁니다. 대신 <strong>Notion API로 출제자 단위
+       <code>child_database</code>를 탐색</strong>해, 평소처럼 정리만 하면 그게 그대로 문제가 되게 했습니다.</p>
+    <p class="win"><em>성과</em>회차당 준비시간 <strong>3~4시간 → 2시간</strong></p>
+    <p class="cost"><em>감수</em>동시성을 <b>풀지 않고 비껴갔습니다.</b> 제대로 하려면 서버를 상시 운영해야 하는데, 준비시간을 줄이려 만든 도구에 운영 비용이 생기면 목적이 뒤집힙니다. 로컬 실행 + 같은 네트워크로 범위를 좁혔고, <b>원격 참여는 불가능</b>합니다.</p>
+  </div>
+
+  <div class="dec" style="--ac:var(--yellow)">
+    <div class="q">멍경찰과 냥도둑 — 비대칭 멀티플레이 &nbsp;<span class="small">2026.01–06 · 1인</span></div>
+    <p>추격 중 손은 이미 이동과 아이템 칸에 묶여 있어 <strong>음성이 유일하게 비어 있는 입력 채널</strong>이었습니다. 기능이 멋있어서가 아니라 남은 게 그것뿐이었습니다.
+       자유 발화는 <strong>오인식과 응답 지연이 곧 추격 실패</strong>라 기각하고, 명령 5종을 강아지가 실제로 할 수 있는 행동에 1:1 대응시켰습니다.</p>
+    <p class="cost"><em>아쉬운 점</em>LLM을 붙이고 <b>나서야</b> 실시간 게임에서 응답 지연이 곧 조작 지연임을 알았습니다. 기능을 먼저 붙이고 범위를 나중에 줄였습니다 — 순서가 반대였습니다.
+      밸런스는 1인이라 검증하지 못했고, 지금 근거는 <b>설계 논리이지 플레이 데이터가 아닙니다.</b></p>
+  </div>
+
+  <div class="dec" style="--ac:var(--green)">
+    <div class="q">인천 카페 창업 상권 분석 &nbsp;<span class="small">2025 · 데이터사이언스응용 팀</span></div>
+    <p>기성 데이터가 없어 <strong>인천 행정동을 직접 크롤링</strong>, 150개 행정동의 카페 점포 특성표를 만들었습니다(지역특성·근접점포개수·근접점포비율·지역점포규모·지역매출·지역영업이익·중요고객층).
+       리뷰는 BERT로 전처리해 수치 변수와 같은 표에 올렸습니다.</p>
+    <p class="win"><em>성과</em>목표를 <strong>정확도가 아니라 설명 가능성</strong>에 두고 SHAP으로 기여도 분해 — &ldquo;근접점포비율이 이만큼 끌어내린다&rdquo;처럼 말할 수 있게</p>
+    <p class="cost"><em>한계</em>크롤링 스냅샷 한 장으로 판단했습니다. 상권은 계속 변하는데 <b>시계열로 보지 못한 것</b>이 가장 큰 한계입니다.</p>
+  </div>
+
+  <div class="dec" style="--ac:var(--pink)">
+    <div class="q">영화 추천 시스템 (NCF) &nbsp;<span class="small">2025 · 데이터분석특론 팀</span></div>
+    <p>GMF와 NNMF를 나란히 만들어 <strong>학습 성능이 아니라 훈련·테스트 격차</strong>로 골랐습니다.
+       GMF는 학습은 매우 잘 됐지만 격차가 컸고(과적합), NNMF는 곡선이 덜 화려해도 격차가 작았습니다 → NNMF 채택.</p>
+    <p class="cost"><em>배운 것</em>딥러닝을 쓰는 이유(복잡한 패턴 학습)가 <b>그대로 과적합의 원인</b>이 됩니다. 결과를 보고 지표를 고르면 무엇이든 정당화되므로 <b>기준을 먼저</b> 정했습니다.</p>
+  </div>
+
+  <div class="dec">
+    <div class="q">SnapHere <span class="small">2026.04 – 진행 중</span> &nbsp;·&nbsp; ChADa AI 연구 스터디 <span class="small">2023.07 – 2025.07</span></div>
+    <p><strong>SnapHere</strong> — 관광데이터 활용 공모전. DERO에서 만든 협업 절차(이슈 컨벤션·API 명세 사전 정리·PR 리뷰)를 그대로 가져와 시작했습니다.
+       모노레포 · <code>main → develop → feature</code> · MR 리뷰 필수.</p>
+    <p><strong>ChADa</strong> — 2년간 논문 리뷰 → 모델 직접 구현 → 발표를 반복. ETRI Fashion-How Season 5 참가(베이스라인 분석·데이터 증강·ResNet 모델링).
+       버전별 결과를 표로 남기는 습관이 여기서 왔고, Bimp의 YOLO 모델링과 영화추천 비교 실험이 전부 이 절차 위에서 진행됐습니다.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 7. PROFILE ═══════════ -->
+<section class="pg" data-foot="이력 ◆ 10">
+  <div class="sh"><span class="no">05</span><h2>학력 · 경력 · 수상</h2></div>
+
+  <div class="grid2">
+    <div>
+      <h3 class="blk">학력 · 교육</h3>
+      <ul class="tl">
+        <li><div class="y">2019.03 – 2025.07</div><div><b>한국외국어대학교 산업경영공학과</b><em>학사 졸업 · 공정과 서비스 흐름의 낭비를 찾아 재설계하는 방법론</em></div></li>
+        <li><div class="y">2026.01 – 2026.07</div><div><b>삼성 청년 SW·AI 아카데미 (SSAFY) 15기</b><em>925시간 · 대전</em></div></li>
+        <li><div class="y">2024.07 – 2024.12</div><div><b>교보DTS Cloud Architecture DX Academy</b><em>810시간 · Linux · 네트워크 · Docker/K8s · CI/CD · AWS</em></div></li>
+      </ul>
+
+      <h3 class="blk">수상 · 어학</h3>
+      <ul class="tl">
+        <li><div class="y">2026</div><div><b>SSAFY 공통 프로젝트 경진대회 우수상</b><em>DERO · 5인팀</em></div></li>
+        <li><div class="y">2024.12</div><div><b>Cloud DX Academy 프로젝트 경진대회 최우수상</b><em>교보DTS · 4인팀 팀장</em></div></li>
+        <li><div class="y">2024.10</div><div><b>제20회 산업공학프로젝트 경진대회 장려상</b><em>대한산업공학회 · Bimp</em></div></li>
+        <li><div class="y">2026.02</div><div><b>OPIc IH</b></div></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="blk">경력</h3>
+      <ul class="tl">
+        <li><div class="y">2025.08 – 2026.01</div><div><b>타임교육</b><em>교육자료 디지털화 · 전산화, 자료 분류 및 누락 · 형식 검수</em></div></li>
+        <li><div class="y">2022.03 – 2025.08</div><div><b>바나프레소 · 카페 아르바이트</b><em>주중·주말 교대 3년 반. 피크 시간대 주문 처리와 재고·위생 점검</em></div></li>
+        <li><div class="y">2022.08 – 2023.01</div><div><b>법무법인 화우</b><em>판례 · 법률문서 디지털화, 쟁점별 라벨링 및 DB 구축 지원</em></div></li>
+      </ul>
+
+      <h3 class="blk">활동</h3>
+      <ul class="tl">
+        <li><div class="y">2023.07 – 2025.07</div><div><b>ChADa · AI 연구 스터디</b><em>한국외국어대학교 · 논문 리뷰, 모델 구현 및 발표</em></div></li>
+        <li><div class="y">2026.03 – 04</div><div><b>CS 스터디 운영 개선</b><em>노션 글 → 문제화 → 실시간 퀴즈 사이트. 준비시간 3~4h → 2h</em></div></li>
+      </ul>
+
+      <div class="note">
+        <b>일하는 방식.</b> 역할은 매번 달랐지만 진입 방식은 같았습니다 —
+        <b>AS-IS를 계측하고 → TO-BE를 정의하고 → 가장 작은 실험으로 확인하고 → 절차로 굳힙니다.</b>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="blk" style="margin-top:8mm">연락처</h3>
+  <div class="mt" style="border-top:1.6pt solid var(--fg)">
+    <div><span>Email</span>pppp000310@gmail.com</div>
+    <div><span>Web</span>sungeun-portfolio.vercel.app</div>
+    <div><span>GitHub</span>github.com/bada0310</div>
+    <div><span>Blog</span>velog.io/@sungeun0310</div>
+  </div>
+  <p class="small" style="margin-top:5mm;border-top:.5pt solid var(--line);padding-top:3mm">
+    <b>포스텔의 법칙 · 견고함의 법칙</b><br>
+    Be conservative in what you do, be liberal in what you accept from others.
+  </p>
+  <p class="small" style="margin-top:3mm">
+    상세 산출물(ERD 설계서, 아키텍처 문서, 배포 트러블슈팅 기록, 각 프로젝트 보고서)은 요청 주시면 보내드립니다.<br>
+    DERO 소스는 SSAFY 사내 GitLab에 있어 외부 열람이 제한됩니다 — 공개 미러 준비 중입니다.
+  </p>
+</section>
+
+</body>
+</html>

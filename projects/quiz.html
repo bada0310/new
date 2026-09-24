@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>실시간 노션 퀴즈 쇼 · 박성은</title>
+<meta name="description" content="스터디 운영을 자동화한 실시간 퀴즈 도구. 회차 준비 3~4시간 → 2시간.">
+<link rel="icon" href="/assets/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/"><img class="brand-av" src="/assets/avatar.webp" alt="" width="26" height="26">BADA</a>
+    <div class="nav-links">
+      <a href="/">홈</a>
+      <a href="/projects" aria-current="page">프로젝트</a>
+      <a href="/skills">기술</a>
+      <a href="/about">이력</a>
+    </div>
+    <a class="nav-cta" href="mailto:pppp000310@gmail.com">Contact</a>
+    <button class="tt" id="pl" type="button" aria-label="차분한 보기 전환" title="차분한 보기 — 모션과 장식을 끕니다">◇</button>
+    <button class="tt" id="tt" type="button" aria-label="라이트/다크 테마 전환">◐</button>
+  </div>
+</nav>
+
+<section class="wrap sec" id="top" style="--fc:var(--c-blue)">
+  <nav class="crumb" aria-label="현재 위치"><a href="/projects">← 프로젝트</a><span class="no">05</span></nav>
+  <div class="panel" style="--fc:var(--c-blue)">
+    <div class="panel-hd">
+      <div class="case-row">
+        <span class="tag on">Automation</span><span class="tag">Notion API</span><span class="tag">WebSocket</span><span class="tag">FastAPI</span>
+      </div>
+      <h1>실시간 노션 퀴즈 쇼 — 스터디 운영 자동화</h1>
+      <div class="when">2026.03 – 04 · 개인 프로젝트</div>
+      <p class="sub">말로 하던 출제 · 응답 · 채점 · 집계를 실시간 웹 도구로 옮겼습니다. <strong>회차당 준비시간 3~4시간 → 2시간.</strong></p>
+      <div class="facts"><span><b>개인</b></span><span>기획 · 개발 · 운영</span></div>
+      <div class="links"><a class="chiplink" href="https://github.com/bada0310/quiz-study" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </div>
+    <div class="deep-body">
+            <div class="block" data-sec="overview">
+        <h4>Problem · 계측</h4>
+        <p>CS 스터디를 운영하면서 매 회차 <strong>3~4시간</strong>이 들었습니다. 그런데 그 시간의 대부분이 공부가 아니라 <strong>운영</strong>이었습니다 — 노션에 흩어진 정리 글에서 문제를 뽑고, 사람마다 답을 받고, 채점하고, 집계하는 일.</p>
+        <p>공부에 쓰는 시간과 운영에 쓰는 시간을 나눠서 재보니 <strong>운영 쪽이 줄일 수 있는 부분</strong>이었습니다.</p>
+      </div>
+<div class="block" data-sec="overview">
+        <h4>핵심 성과 · Key Achievements</h4>
+        <ul class="kpi">
+          <li><b>운영 시간 단축</b> CS 스터디 회차 준비 <strong>3~4시간 → 2시간</strong>.
+              공부 시간과 운영 시간을 나눠 재보고 <strong>줄일 수 있는 쪽이 운영</strong>이라는 걸 먼저 확인한 뒤 손댔습니다</li>
+          <li><b>기존 습관을 바꾸지 않는 설계</b> 전용 출제 페이지를 만들면 &lsquo;정리 → 옮겨적기&rsquo; 단계가 늘어납니다.
+              대신 <strong>Notion API로 출제자 단위 <code>child_database</code> 블록을 탐색</strong>해,
+              평소처럼 정리만 하면 그게 그대로 문제가 되게 했습니다</li>
+          <li><b>동시성 보장</b> 폴링이면 사람마다 문제가 뜨는 시점이 어긋나 먼저 받은 사람이 유리해집니다.
+              <strong>WebSocket 브로드캐스트</strong>로 모두가 같은 순간에 같은 문제를 보게 만들었습니다</li>
+          <li><b>반복 판단의 도구화</b> 출제 · 응답 · 채점 · 집계를 사람 손에서 걷어냈습니다.
+              &ldquo;사람이 매번 같은 결정을 하고 있으면 코드로 옮길 수 있다&rdquo;를 이후 프로젝트에서도 먼저 봅니다</li>
+        </ul>
+        <div class="meta2">
+          <div><span class="meta2-k">기간</span>2026.03 – 04</div>
+          <div><span class="meta2-k">팀</span>개인 프로젝트 (기여도 100%)</div>
+          <div><span class="meta2-k">나의 역할</span>문제 정의 · 기획 · 개발 · 스터디 운영 적용</div>
+          <div><span class="meta2-k">성과</span>회차당 준비시간 <b>약 50% 단축</b>, 스터디에 실제 도입</div>
+        </div>
+        <div class="stack2">
+          <div><span class="stack2-k">Backend</span>Python · Uvicorn · WebSocket</div>
+          <div><span class="stack2-k">Integration</span>Notion API (child_database 탐색 · 문제 정규화)</div>
+          <div><span class="stack2-k">Frontend</span>HTML · JavaScript (출제자 모니터 · 참가자 화면)</div>
+        </div>
+      </div>
+            <div class="block" data-sec="decision">
+        <h4>설계 의사결정 — 새 도구를 배우게 하지 않기</h4>
+
+        <div class="dec">
+          <div class="dec-q">Q. 왜 전용 출제 화면을 만들지 않고 Notion을 읽었나</div>
+          <p>가장 쉬운 구현은 출제용 관리자 페이지를 하나 만드는 것입니다. 그런데 <strong>스터디원들은 이미 노션에 정리하고 있었습니다.</strong></p>
+          <p>새 도구를 만들면 <strong>정리 → 문제 옮겨적기</strong>라는 단계가 하나 늘어납니다. 줄이려던 시간을 다시 쓰는 셈입니다.</p>
+          <p>그래서 <strong>Notion API로 출제자 단위의 <code>child_database</code> 블록을 찾아</strong> 문제를 추출하는 쪽으로 갔습니다.
+             출제자는 평소처럼 정리만 하면 그게 그대로 문제가 됩니다.</p>
+          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>전용 출제 페이지</td><td>구조가 내 통제 아래. 파싱 깨질 일 없음</td><td>사용자에게 <strong>새 습관을 요구</strong>. 옮겨적는 시간이 그대로 남음</td><td class="kill">기각</td></tr>
+                <tr><td><strong>Notion API로 읽기</strong></td><td>기존 습관을 그대로 씀. 준비시간이 실제로 줄어듦</td><td>노션 표 구조가 바뀌면 <strong>추출이 깨짐</strong>. API 호출 제한에 묶임</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="dec-cost"><b>결과</b> 회차당 준비시간 <b>3~4시간 → 2시간.</b> 줄어든 시간은 전부 운영 쪽에서 나왔습니다.
+             <b>감수한 것</b> 남의 서비스 데이터 구조에 의존한다는 것. 실제로 표 구조가 바뀌어 추출이 깨진 적이 있습니다.</p>
+        </div>
+
+        <div class="dec">
+          <div class="dec-q">Q. 왜 WebSocket인가 — 폴링으로는 안 되나</div>
+          <p>퀴즈 쇼는 <strong>모두가 같은 순간에 같은 문제를 보고 있어야</strong> 성립합니다. 폴링이면 사람마다 문제가 뜨는 시점이 어긋나고,
+             먼저 받은 사람이 유리해집니다.</p>
+          <p class="dec-cost"><b>감수한 것</b> 연결 상태를 직접 관리해야 합니다. <b>재접속 시 상태 복원</b>이 실제로 남은 숙제이고, 아직 정리 중입니다.</p>
+        </div>
+      </div>
+<div class="block" data-sec="arch">
+        <h4>How it works</h4>
+        <pre class="flow">Notion 페이지 → <b>Notion API</b>로 출제자 단위 <b>child_database</b> 탐색
+        → 문제 추출 · 정규화
+        → Uvicorn :8000
+        → <b>WebSocket 브로드캐스트</b> → 참가자 화면 동시 갱신
+        → 제출 집계 · 채점 · 결과 표시</pre>
+        <p style="margin-top:.7rem">출제자가 <strong>평소처럼 노션에 정리만 하면</strong> 그게 그대로 문제가 됩니다. 새로운 도구를 배우게 하지 않는 것이 설계 조건이었습니다.</p>
+      </div>
+      <div class="block" data-sec="overview">
+        <h4>Result</h4>
+        <div class="callout" style="margin-top:.8rem"><b>반복되는 판단을 도구로 옮긴 첫 경험입니다.</b> 이후 프로젝트에서도 &ldquo;사람이 매번 같은 결정을 하고 있으면 그건 코드로 옮길 수 있다&rdquo;를 먼저 봅니다.</div>
+      </div>
+      <div class="block" data-sec="trouble">
+        <h4>Troubleshooting — 동시성을 풀지 않고 비껴간 결정</h4>
+        <div class="ts">
+          <div class="ts-row"><div class="ts-k">문제</div><div class="ts-v">여러 명이 <strong>같은 순간에 제출</strong>하면 집계가 어긋날 수 있다는 걸 알고 있었습니다. 퀴즈 쇼는 동점 처리와 순위가 걸려 있어서 무시할 수 없는 문제였습니다.</div></div>
+          <div class="ts-row"><div class="ts-k">파고든 것</div><div class="ts-v">웹 서비스의 <strong>동시성 처리</strong>를 따로 공부했습니다. 락 · 큐 · 세션 관리로 제출 순서를 보장하는 방향을 검토했습니다.</div></div>
+          <div class="ts-row wrong"><div class="ts-k">멈춘 지점</div><div class="ts-v">제대로 하려면 <b>서버를 띄우고 상시 운영</b>해야 했습니다. 그런데 이 도구는 <strong>스터디 준비시간을 줄이려고</strong> 만든 것입니다. 도구를 운영하는 비용이 새로 생기면 <strong>목적이 뒤집힙니다.</strong></div></div>
+          <div class="ts-row"><div class="ts-k">해결</div><div class="ts-v">문제를 푸는 대신 <strong>범위를 좁혔습니다.</strong> 로컬에서 실행하고 포트만 열어 <strong>같은 네트워크(같은 IP 대역) 안에서만</strong> 동작하게 했습니다. 스터디는 어차피 한자리에 모여서 하니 요구가 충족됩니다.</div></div>
+          <div class="ts-row"><div class="ts-k">감수한 것</div><div class="ts-v"><strong>원격 참여가 불가능</strong>합니다. 공개 서비스로 확장하려면 이 결정을 되돌리고 동시성부터 다시 풀어야 합니다.</div></div>
+          <div class="ts-row"><div class="ts-k">배운 것</div><div class="ts-v">동시성 문제를 <strong>풀지 않고 회피했습니다.</strong> 처음엔 진 것 같았는데, <strong>사용 맥락이 좁으면 회피가 맞는 선택</strong>일 때도 있다는 걸 알았습니다. 중요한 건 <strong>어떤 조건에서 이 결정이 깨지는지를 알고 있는 것</strong>입니다.</div></div>
+        </div>
+      </div>
+      <div class="block" data-sec="retro">
+        <h4>남은 한계</h4>
+        <p><strong>원격 참여 불가</strong>가 가장 큰 제약입니다(위 트러블슈팅 참고). 그 외에 재접속 시 상태 복원과 Notion 표 구조 변경 시 추출이 깨지는 문제가 남아 있습니다 — 남의 서비스 데이터 구조에 의존하기로 한 선택의 대가입니다.</p>
+      </div>
+    </div>
+  </div>
+  <nav class="pager">
+    <a href="/projects/lumiere">← 이전 프로젝트</a>
+    <a href="/projects">전체 목록</a>
+    <a href="/projects/cafe">다음 프로젝트 →</a>
+  </nav>
+</section>
+
+<!-- ══════════  FOOT  ══════════ -->
+<footer class="wrap foot" id="contact">
+  <div class="foot-grid">
+    <div>
+      <h2 class="foot-quote">Be conservative in what you do,<em>be liberal in what you accept from others.</em></h2>
+        <p class="foot-law">&mdash; Jon Postel, RFC 761 (1980)</p>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/bada0310" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://velog.io/@sungeun0310/posts" target="_blank" rel="noopener" aria-label="기술 블로그">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm3.6 4.6c-.6 0-1 .4-1 .9 0 .2 0 .3.1.5l2.4 7c.2.5.5.7 1 .7h1.3c.5 0 .8-.2 1-.7l2.4-7c0-.2.1-.3.1-.5 0-.5-.4-.9-1-.9s-.9.3-1 .8l-1.7 5.4-1.7-5.4c-.1-.5-.4-.8-1-.8Z"/></svg>
+        <span>velog</span>
+      </a>
+      <a href="mailto:pppp000310@gmail.com" aria-label="메일 보내기 — pppp000310@gmail.com" title="pppp000310@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.3l-10 5.7L2 5.8v-.3Zm0 2.6V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.1l-9.5 5.4a1 1 0 0 1-1 0L2 8.1Z"/></svg>
+        <span>Mail</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="fine">
+    이력서·상세 산출물(ERD 설계서, 아키텍처 문서, 배포 트러블슈팅 기록)은 요청 주시면 보내드립니다.<br>
+    DERO 소스는 SSAFY 사내 GitLab에 있어 외부 열람이 제한됩니다 — 공개 미러가 준비되는 대로 이 자리에 링크를 겁니다.
+  </p>
+
+  <div class="copy">
+    <span>© 2026 박성은. All rights reserved.</span>
+    <a href="#top">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

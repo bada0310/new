@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>인천 카페 창업 상권 분석 · 박성은</title>
+<meta name="description" content="예측 정확도가 아니라 왜 이 입지인가에 답하는 상권 분석. 인천 행정동 150개 크롤링.">
+<link rel="icon" href="/assets/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/"><img class="brand-av" src="/assets/avatar.webp" alt="" width="26" height="26">BADA</a>
+    <div class="nav-links">
+      <a href="/">홈</a>
+      <a href="/projects" aria-current="page">프로젝트</a>
+      <a href="/skills">기술</a>
+      <a href="/about">이력</a>
+    </div>
+    <a class="nav-cta" href="mailto:pppp000310@gmail.com">Contact</a>
+    <button class="tt" id="pl" type="button" aria-label="차분한 보기 전환" title="차분한 보기 — 모션과 장식을 끕니다">◇</button>
+    <button class="tt" id="tt" type="button" aria-label="라이트/다크 테마 전환">◐</button>
+  </div>
+</nav>
+
+<section class="wrap sec" id="top" style="--fc:var(--c-green)">
+  <nav class="crumb" aria-label="현재 위치"><a href="/projects">← 프로젝트</a><span class="no">06</span></nav>
+  <div class="panel" style="--fc:var(--c-green)">
+    <div class="panel-hd">
+      <div class="case-row">
+        <span class="tag on">Data</span><span class="tag">Python</span><span class="tag">SHAP</span><span class="tag">BERT</span><span class="tag">크롤링</span>
+      </div>
+      <h1>인천 카페 창업 상권 분석</h1>
+      <div class="when">2025 · 데이터사이언스응용 팀 프로젝트</div>
+      <p class="sub">예측 정확도가 아니라 <strong>&ldquo;왜 이 입지인가&rdquo;</strong>에 답하는 분석. 창업자는 점수가 아니라 근거를 필요로 합니다.</p>
+      <div class="facts"><span>팀 프로젝트</span><span>데이터 수집 · 분석 · 해석</span></div>
+      <div class="links"><span class="chiplink off">발표자료 · 보고서 · 요청 시 공유</span></div>
+    </div>
+    <div class="deep-body">
+            <div class="block" data-sec="overview">
+        <h4>Problem</h4>
+        <p>상권 분석 서비스는 &ldquo;이 자리는 80점&rdquo; 같은 점수를 줍니다. 그런데 창업자가 실제로 알고 싶은 건 <strong>무엇 때문에 80점인지</strong>입니다. 점수만으로는 무엇을 바꿔야 할지 알 수 없습니다.</p>
+        <p>그래서 목표를 <strong>정확도가 아니라 설명 가능성</strong>에 두었습니다.</p>
+      </div>
+<div class="block" data-sec="overview">
+        <h4>나의 활동</h4>
+        <p>행정동 단위로 상권 데이터를 크롤링해 <strong>150개 행정동의 카페 점포 특성표</strong>를 만들었습니다. 리뷰 텍스트는 BERT로 전처리해 수치 변수와 나란히 놓았습니다.</p>
+        <p>그 위에 상관분석과 <strong>SHAP</strong>을 얹어, 특정 입지의 점수가 어떤 변수에서 얼마나 왔는지 분해했습니다. &ldquo;근접점포비율이 이 지역 점수를 이만큼 끌어내린다&rdquo;처럼 말할 수 있게 만드는 것이 목적이었습니다.</p>
+      </div>
+            <div class="block" data-sec="decision">
+        <h4>분석 의사결정 — 정확도 대신 설명 가능성</h4>
+
+        <div class="dec">
+          <div class="dec-q">Q. 왜 예측 정확도를 목표로 잡지 않았나</div>
+          <p>상권 분석 서비스는 보통 <strong>&ldquo;이 자리는 80점&rdquo;</strong> 같은 점수를 줍니다.
+             그런데 창업자가 실제로 필요한 건 점수가 아니라 <strong>&ldquo;무엇 때문에 80점인지&rdquo;</strong>입니다.
+             점수만으로는 무엇을 바꿔야 할지 알 수 없습니다.</p>
+          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>성능 최우선 (부스팅 계열 튜닝)</td><td>지표상 예측력이 높음</td><td>왜 그런지 설명 못 함. <strong>의사결정을 도울 수 없음</strong></td><td class="kill">기각</td></tr>
+                <tr><td><strong>설명 가능성 우선 (SHAP)</strong></td><td>변수별 기여도를 분해해 <strong>&ldquo;근접점포비율이 이만큼 끌어내린다&rdquo;</strong>처럼 말할 수 있음</td><td>지표상 정확도는 조금 손해</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="dec-cost"><b>배운 것</b> 의사결정을 돕는 분석에서는 <b>틀릴 수 있다는 걸 보여주는 것도 결과의 일부</b>입니다.
+             기여도가 낮은 변수를 숨기지 않는 쪽이 오히려 신뢰를 얻었습니다.</p>
+        </div>
+
+        <div class="dec">
+          <div class="dec-q">Q. 데이터는 어떻게 만들었나</div>
+          <p>기성 데이터셋이 없어 <strong>인천 행정동을 직접 크롤링</strong>해 <strong>150개 행정동의 카페 점포 특성표</strong>를 만들었습니다.</p>
+          <p>수집 변수: <code>지역특성</code> · <code>근접점포개수</code> · <code>근접점포비율</code> · <code>지역점포규모</code> ·
+             <code>지역매출</code> · <code>지역영업이익</code> · <code>중요고객층</code>. 리뷰 텍스트는 <strong>BERT로 전처리</strong>해 수치 변수와 나란히 놓았습니다.</p>
+          <p class="dec-cost"><b>감수한 것</b> 크롤링 데이터라 시점이 고정입니다. 상권은 계속 변하는데 스냅샷 한 장으로 판단한 셈이고,
+             시계열로 보지 못한 것이 이 분석의 가장 큰 한계입니다.</p>
+        </div>
+      </div>
+<div class="block" data-sec="arch">
+        <h4>데이터 · 파이프라인</h4>
+        <pre class="flow">인천 <b>행정동별 크롤링</b>
+   → 카페 점포 특성 정리 <b>150개 행정동</b>
+   → 변수: 지역특성 · 근접점포개수 · 근접점포비율
+           지역점포규모 · 지역매출 · 지역영업이익 · 중요고객층
+   → 텍스트 리뷰 <b>BERT 전처리</b> · 시각화
+   → 상관분석 → 모델 → <b>SHAP</b> 기여도 분해</pre>
+      </div>
+      <div class="block" data-sec="overview">
+        <h4>핵심 성과 · Key Achievements</h4>
+        <ul class="kpi">
+          <li><b>데이터셋 자체 구축</b> 쓸 만한 기성 데이터가 없어 <strong>인천 행정동을 직접 크롤링</strong>,
+              <strong>150개 행정동의 카페 점포 특성표</strong>를 만들었습니다</li>
+          <li><b>변수 설계</b> 지역특성 · 근접점포개수 · 근접점포비율 · 지역점포규모 · 지역매출 · 지역영업이익 · 중요고객층
+              <strong>7개 축</strong>으로 상권을 수치화하고, 리뷰 텍스트는 <strong>BERT로 전처리</strong>해 수치 변수와 같은 표에 올렸습니다</li>
+          <li><b>목표를 정확도에서 설명 가능성으로</b> 창업자가 필요한 건 점수가 아니라 <strong>&ldquo;무엇 때문에 그 점수인지&rdquo;</strong>입니다.
+              <strong>SHAP</strong>으로 변수별 기여도를 분해해 &ldquo;근접점포비율이 이만큼 끌어내린다&rdquo;처럼 말할 수 있게 만들었습니다</li>
+          <li><b>통념 대신 수치로 답함</b> 매출과 상관이 높은 변수를 전수 계산해 <strong>상위 9개</strong>를 특정했습니다 &mdash;
+              1위가 <strong>시장규모(r&nbsp;=&nbsp;0.452)</strong>, 2위가 <strong>30대 여성 인구(r&nbsp;=&nbsp;0.432)</strong>.
+              &ldquo;유동인구가 많으면 잘 된다&rdquo;가 아니라 <strong>연령·성별로 쪼갠 인구 구조</strong>가 더 설명력이 높다는 결론입니다</li>
+          <li><b>모델로 검증</b> 리뷰 텍스트만으로 <strong>7개 지역구</strong>(중구 &middot; 서구 &middot; 미추홀구 &middot; 연수구 &middot; 부평구 &middot; 동구 &middot; 남동구)를
+              맞히는 분류기를 세워 <strong>정확도 약 47%</strong> &mdash; 무작위 추측 <strong>14.3%</strong> 대비 <strong>3.3배</strong>로,
+              리뷰에 지역색이 실제로 담겨 있음을 확인했습니다</li>
+          <li><b>안 되는 것은 안 된다고 남김</b> 행정동별 <strong>키워드 등장 비율</strong>로는 유의미한 차이를 얻지 못했습니다 &mdash;
+              &lsquo;커피가 맛있어요 &middot; 빵이 맛있어요 &middot; 디저트가 맛있어요&rsquo; <strong>상위 3개</strong>가 어디서나 비중을 차지했기 때문입니다.
+              이 경로는 <strong>기각</strong>하고 정량 변수 쪽으로 옮겼습니다</li>
+          <li><b>한계를 결과에 포함</b> 기여도가 낮은 변수를 숨기지 않았고,
+              <strong>크롤링 스냅샷 한 장으로 판단했다</strong>는 시점 한계를 보고서에 그대로 남겼습니다</li>
+        </ul>
+        <div class="meta2">
+          <div><span class="meta2-k">기간</span>2025 · 데이터사이언스응용 팀 프로젝트</div>
+          <div><span class="meta2-k">팀</span>팀 프로젝트</div>
+          <div><span class="meta2-k">나의 역할</span>데이터 수집 · 변수 설계 · 분석 · 해석</div>
+          <div><span class="meta2-k">산출물</span>중간 발표자료 · 최종 보고서 · 행정동 특성 데이터셋(150행)</div>
+        </div>
+        <div class="stack2">
+          <div><span class="stack2-k">Data</span>Python · pandas · 웹 크롤링</div>
+          <div><span class="stack2-k">NLP</span>BERT (리뷰 텍스트 전처리 · 시각화)</div>
+          <div><span class="stack2-k">Model · 해석</span>scikit-learn · SHAP · 상관분석</div>
+        </div>
+      </div>
+      <div class="block" data-sec="retro">
+        <h4>Retrospective</h4>
+        <div class="retro">
+          <div><span>잘한 점</span><p>목표를 <strong>정확도에서 설명 가능성으로</strong> 옮긴 것. 덕분에 결과를 발표할 때 &ldquo;왜&rdquo;에 답할 수 있었습니다.</p></div>
+          <div><span>배운 점</span><p>의사결정을 돕는 분석에서는 <strong>틀릴 수 있다는 걸 보여주는 것</strong>도 결과의 일부입니다. 기여도가 낮은 변수를 숨기지 않는 쪽이 신뢰를 얻습니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="pager">
+    <a href="/projects/quiz">← 이전 프로젝트</a>
+    <a href="/projects">전체 목록</a>
+    <a href="/projects/pawlice">다음 프로젝트 →</a>
+  </nav>
+</section>
+
+<!-- ══════════  FOOT  ══════════ -->
+<footer class="wrap foot" id="contact">
+  <div class="foot-grid">
+    <div>
+      <h2 class="foot-quote">Be conservative in what you do,<em>be liberal in what you accept from others.</em></h2>
+        <p class="foot-law">&mdash; Jon Postel, RFC 761 (1980)</p>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/bada0310" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://velog.io/@sungeun0310/posts" target="_blank" rel="noopener" aria-label="기술 블로그">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm3.6 4.6c-.6 0-1 .4-1 .9 0 .2 0 .3.1.5l2.4 7c.2.5.5.7 1 .7h1.3c.5 0 .8-.2 1-.7l2.4-7c0-.2.1-.3.1-.5 0-.5-.4-.9-1-.9s-.9.3-1 .8l-1.7 5.4-1.7-5.4c-.1-.5-.4-.8-1-.8Z"/></svg>
+        <span>velog</span>
+      </a>
+      <a href="mailto:pppp000310@gmail.com" aria-label="메일 보내기 — pppp000310@gmail.com" title="pppp000310@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.3l-10 5.7L2 5.8v-.3Zm0 2.6V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.1l-9.5 5.4a1 1 0 0 1-1 0L2 8.1Z"/></svg>
+        <span>Mail</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="fine">
+    이력서·상세 산출물(ERD 설계서, 아키텍처 문서, 배포 트러블슈팅 기록)은 요청 주시면 보내드립니다.<br>
+    DERO 소스는 SSAFY 사내 GitLab에 있어 외부 열람이 제한됩니다 — 공개 미러가 준비되는 대로 이 자리에 링크를 겁니다.
+  </p>
+
+  <div class="copy">
+    <span>© 2026 박성은. All rights reserved.</span>
+    <a href="#top">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
