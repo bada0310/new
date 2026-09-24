@@ -13,12 +13,12 @@
 
 | 용도 | 링크 | 대표 3선 |
 |---|---|---|
-| 기본 | https://sungeun-portfolio.vercel.app | VIMP · DERO · AWS |
-| Product Engineer | https://sungeun-portfolio.vercel.app/?role=product | DERO · 퀴즈 쇼 · VIMP |
+| 기본 | https://sungeun-portfolio.vercel.app | Bimp · DERO · AWS |
+| Product Engineer | https://sungeun-portfolio.vercel.app/?role=product | DERO · 퀴즈 쇼 · Bimp |
 | Frontend · UI/UX | https://sungeun-portfolio.vercel.app/?role=fe | DERO · 멍경찰과 냥도둑 · 퀴즈 쇼 |
 | Infra · Cloud | https://sungeun-portfolio.vercel.app/?role=infra | AWS · DERO · Lumière |
-| Data · AI | https://sungeun-portfolio.vercel.app/?role=data | VIMP · 영화 추천 · 인천 카페 |
-| PM · 기획 | https://sungeun-portfolio.vercel.app/?role=pm | DERO · 인천 카페 · VIMP |
+| Data · AI | https://sungeun-portfolio.vercel.app/?role=data | Bimp · 영화 추천 · 인천 카페 |
+| PM · 기획 | https://sungeun-portfolio.vercel.app/?role=pm | DERO · 인천 카페 · Bimp |
 | PDF | https://sungeun-portfolio.vercel.app/portfolio.pdf | 10쪽 · 3.8MB |
 
 폴더 3개는 role이 바뀌어도 항상 서로 다른 색을 갖습니다 — 같은 색을 주장하는 프로젝트가 겹치면 남은 색으로 밀어냅니다.
