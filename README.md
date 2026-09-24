@@ -31,10 +31,10 @@
 | 직무 | 순서 | 사이트 링크 |
 |---|---|---|
 | Infra · Cloud | [AWS](docs/aws.md) → [DERO](docs/dero.md) → [Lumière](docs/lumiere.md) | [?role=infra](https://sungeun-portfolio.vercel.app/?role=infra) |
-| Product Engineer | [DERO](docs/dero.md) → [퀴즈 쇼](docs/quiz.md) → [VIMP](docs/vimp.md) | [?role=product](https://sungeun-portfolio.vercel.app/?role=product) |
+| Product Engineer | [DERO](docs/dero.md) → [퀴즈 쇼](docs/quiz.md) → [Bimp](docs/vimp.md) | [?role=product](https://sungeun-portfolio.vercel.app/?role=product) |
 | Frontend · UI/UX | [DERO](docs/dero.md) → [멍경찰과 냥도둑](docs/pawlice.md) → [퀴즈 쇼](docs/quiz.md) | [?role=fe](https://sungeun-portfolio.vercel.app/?role=fe) |
-| Data · AI | [VIMP](docs/vimp.md) → [영화 추천](docs/movierec.md) → [인천 카페](docs/cafe.md) | [?role=data](https://sungeun-portfolio.vercel.app/?role=data) |
-| PM · 기획 | [DERO](docs/dero.md) → [인천 카페](docs/cafe.md) → [VIMP](docs/vimp.md) | [?role=pm](https://sungeun-portfolio.vercel.app/?role=pm) |
+| Data · AI | [Bimp](docs/vimp.md) → [영화 추천](docs/movierec.md) → [인천 카페](docs/cafe.md) | [?role=data](https://sungeun-portfolio.vercel.app/?role=data) |
+| PM · 기획 | [DERO](docs/dero.md) → [인천 카페](docs/cafe.md) → [Bimp](docs/vimp.md) | [?role=pm](https://sungeun-portfolio.vercel.app/?role=pm) |
 
 ---
 
