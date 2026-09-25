@@ -124,18 +124,18 @@
 <div class="block" data-sec="overview">
         <h4>핵심 성과 · Key Achievements</h4>
         <ul class="kpi">
-<li><b>배포마다 고치던 3곳 → 0곳</b> 재시작마다 바뀌던 ngrok 주소를 <strong>Cloudflare Tunnel 고정 도메인</strong>으로 전환. 손대야 하던 지점은 프론트 <code>.env</code> · OAuth Redirect URI · 백엔드 CORS 세 곳이었습니다. 주소가 상수가 되면서 이 경로의 장애가 사라졌습니다</li>
-<li><b>증상 4종을 6단계로 분해</b> 배포 로그 → 기본 실행 URL → 공개 URL → 프론트 요청 주소 → 서버 도달 → CORS·host
+<li data-axis="infra"><b>배포마다 고치던 3곳 → 0곳</b> 재시작마다 바뀌던 ngrok 주소를 <strong>Cloudflare Tunnel 고정 도메인</strong>으로 전환. 손대야 하던 지점은 프론트 <code>.env</code> · OAuth Redirect URI · 백엔드 CORS 세 곳이었습니다. 주소가 상수가 되면서 이 경로의 장애가 사라졌습니다</li>
+<li data-axis="infra"><b>증상 4종을 6단계로 분해</b> 배포 로그 → 기본 실행 URL → 공개 URL → 프론트 요청 주소 → 서버 도달 → CORS·host
               <strong>6단계 체크리스트</strong>를 만들어, 증상 4종(<code>ERR_FAILED</code> · <code>ERR_NAME_NOT_RESOLVED</code> · 404 · CORS)이
               <strong>같은 원인</strong>임을 특정했습니다. 이후 같은 증상은 매번 이 순서로 잡혔고 <strong>트러블슈팅 문서 6건</strong>이 쌓였습니다</li>
-<li><b>코드보다 스키마를 먼저 확정</b> 2인 팀에서 각자 만들고 나중에 합치는 방식을 피하려고,
+<li data-axis="pm product"><b>코드보다 스키마를 먼저 확정</b> 2인 팀에서 각자 만들고 나중에 합치는 방식을 피하려고,
               코드 이전에 <strong>모델의 출력 스키마와 서버의 입력 스키마를 문서로 확정</strong> —
               모델 정확도를 손보는 동안에도 서버 작업이 멈추지 않았습니다</li>
 </ul>
         <details class="kpi-more">
           <summary>성과 1건 더 보기</summary>
           <ul class="kpi">
-<li><b>빌드와 배포의 분리</b> &lsquo;포장(Build)&rsquo;과 &lsquo;보내기(Deploy)&rsquo;가 독립 단계임을 정리해 오류가 어느 단계 것인지 구분 가능해졌고,
+<li data-axis="infra"><b>빌드와 배포의 분리</b> &lsquo;포장(Build)&rsquo;과 &lsquo;보내기(Deploy)&rsquo;가 독립 단계임을 정리해 오류가 어느 단계 것인지 구분 가능해졌고,
               이 구분이 이후 <strong>DERO의 Jenkins 파이프라인 설계</strong>로 이어졌습니다</li>
           </ul>
         </details>

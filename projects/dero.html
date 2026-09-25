@@ -108,15 +108,15 @@
 <div class="block" data-sec="overview">
         <h4>핵심 성과 · Key Achievements</h4>
         <ul class="kpi">
-<li><b>GLB 38MB → 378KB</b> POC 실측으로 소품당 <strong>20K~50K 삼각형</strong> 예산을 잡고 텍스처 프로필 3단계(21.3 / 42.6 / 47.9 MiB)를 비교해 MVP 기본값을 고정 — 원본 대비 <strong>약 1/100</strong></li>
-<li><b>배포 다운타임 수 초 → 0</b> 호스트 nginx에 포트가 하드코딩돼 제자리 교체되던 구조를 <strong>blue-green</strong>으로 재설계. health 폴링을 통과해야만 트래픽이 넘어가고, 실패하면 아무 일도 일어나지 않음</li>
-<li><b>요구 3개 → 6개, 일정 지연 0</b> 업무 단위가 &lsquo;기능&rsquo;이라 병렬화가 안 되던 구조를 <strong>스프린트 · 데일리 스크럼 · Jira 이슈 컨벤션 · 스토리 포인트</strong>로 재편 — 요구 기능이 두 배로 늘었을 때 기존 스토리에 <strong>추가만으로 대응</strong>했습니다</li>
+<li data-axis="fe"><b>GLB 38MB → 378KB</b> POC 실측으로 소품당 <strong>20K~50K 삼각형</strong> 예산을 잡고 텍스처 프로필 3단계(21.3 / 42.6 / 47.9 MiB)를 비교해 MVP 기본값을 고정 — 원본 대비 <strong>약 1/100</strong></li>
+<li data-axis="infra"><b>배포 다운타임 수 초 → 0</b> 호스트 nginx에 포트가 하드코딩돼 제자리 교체되던 구조를 <strong>blue-green</strong>으로 재설계. health 폴링을 통과해야만 트래픽이 넘어가고, 실패하면 아무 일도 일어나지 않음</li>
+<li data-axis="pm product"><b>요구 3개 → 6개, 일정 지연 0</b> 업무 단위가 &lsquo;기능&rsquo;이라 병렬화가 안 되던 구조를 <strong>스프린트 · 데일리 스크럼 · Jira 이슈 컨벤션 · 스토리 포인트</strong>로 재편 — 요구 기능이 두 배로 늘었을 때 기존 스토리에 <strong>추가만으로 대응</strong>했습니다</li>
 </ul>
         <details class="kpi-more">
           <summary>성과 2건 더 보기</summary>
           <ul class="kpi">
-<li><b>핵심 기능 검증 7일 → 3일</b> 난도가 높은 GLB 변환·렌더링을 전체 개발 전에 POC로 떼어내 먼저 검증했습니다</li>
-<li><b>최소 권한 배포</b> 컨테이너를 <strong>127.0.0.1 바인딩</strong>으로 묶어 3000·8081 평문 노출 제거,
+<li data-axis="pm product"><b>핵심 기능 검증 7일 → 3일</b> 난도가 높은 GLB 변환·렌더링을 전체 개발 전에 POC로 떼어내 먼저 검증했습니다</li>
+<li data-axis="infra"><b>최소 권한 배포</b> 컨테이너를 <strong>127.0.0.1 바인딩</strong>으로 묶어 3000·8081 평문 노출 제거,
               jenkins에는 <code>nginx -t</code> · <code>systemctl reload nginx</code> <strong>두 명령만</strong> sudo 허용</li>
           </ul>
         </details>

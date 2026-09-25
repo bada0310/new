@@ -434,6 +434,47 @@
 
     }
 
+    /* ── achievements: this role's evidence first ──
+       The switcher used to change only which projects were featured, so a PM
+       opening DERO — the project four roles lead with — still met three
+       engineering numbers, and the scope decision that is the PM evidence sat
+       folded away. Each <li> carries data-axis; the ones that speak to this
+       role move to the front, the first three stay visible and the rest go
+       back into the fold.
+
+       The written order is the fallback: no ?role=, no JS, or an untagged
+       item, and the page reads exactly as authored. */
+    (function () {
+      var vis = document.querySelector('.block[data-sec="overview"] > ul.kpi');
+      if (!vis) return;
+      var more = document.querySelector('.kpi-more');
+      var hid = more && more.querySelector('ul.kpi');
+
+      var items = [].slice.call(vis.children);
+      if (hid) items = items.concat([].slice.call(hid.children));
+      if (items.length < 2) return;
+
+      /* stable: only items tagged for this role move, and only past untagged
+         ones — two matches keep the order the author gave them */
+      var rank = items.map(function (li, i) {
+        var ax = (li.getAttribute('data-axis') || '').split(/\s+/);
+        return { li: li, hit: ax.indexOf(role) > -1 ? 0 : 1, i: i };
+      });
+      rank.sort(function (a, b) { return a.hit - b.hit || a.i - b.i; });
+      if (!rank.some(function (r) { return r.hit === 0; })) return;
+
+      var KEEP = Math.min(3, items.length);
+      rank.forEach(function (r, i) { (i < KEEP ? vis : hid || vis).appendChild(r.li); });
+
+      if (more && hid) {
+        var left = hid.children.length;
+        if (!left) { more.hidden = true; return; }
+        more.hidden = false;
+        var sum = more.querySelector('summary');
+        if (sum) sum.textContent = '성과 ' + left + '건 더 보기';
+      }
+    })();
+
     /* pre-apply the matching filter on /projects */
     var fb = document.querySelector('.filters button[data-f="' + role + '"]');
     if (fb) fb.click();
