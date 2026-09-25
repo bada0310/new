@@ -475,6 +475,28 @@
       }
     })();
 
+    /* ── timeline slideshow: lead with this role's own diagrams ──
+       The AWS card opens on aws-architecture, a wider view drawn before the
+       service-level diagrams existed. What was actually built on that project
+       is two infrastructures — a single region first, then extended to multi
+       region — so an infra reader should meet those two, in that order, before
+       anything else. Same principle as the achievement ordering above: the
+       material is unchanged, only the order is. Other roles keep the sequence
+       as authored. */
+    var LEAD = {
+      infra: { '/projects/aws': ['aws-arch-single', 'aws-arch-multi', 'aws-infra-arch'] }
+    };
+    if (LEAD[role]) {
+      Object.keys(LEAD[role]).forEach(function (href) {
+        var card = document.querySelector('.tlx-card[data-href="' + href + '"]');
+        if (!card) return;
+        var want = LEAD[role][href];
+        var imgs = (card.getAttribute('data-imgs') || '').split(',').filter(Boolean);
+        imgs = want.concat(imgs.filter(function (n) { return want.indexOf(n) < 0; }));
+        card.setAttribute('data-imgs', imgs.join(','));
+      });
+    }
+
     /* pre-apply the matching filter on /projects */
     var fb = document.querySelector('.filters button[data-f="' + role + '"]');
     if (fb) fb.click();
