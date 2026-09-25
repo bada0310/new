@@ -215,7 +215,7 @@ Postgres의 인덱스로도 되지만, 조건 조합이 늘어날 때마다 인�
 
 ### CI/CD · 보안 · 관측
 
-![](/assets/dero-pipeline.webp)
+![](../assets/dero-pipeline.webp)
 
 ***배포 파이프라인** — MR 하나가 머지되면 사람이 서버에 들어가지 않는다. 포트 두 벌(blue 3000/8081 · green 3010/8091)을 번갈아 쓰고, 헬스체크를 통과한 뒤에만 nginx upstream을 스위치한다. 통과하지 못하면 green을 폐기하고 blue를 그대로 유지 — 트래픽이 전환되지 않으므로 요청 단절이 없다.*
 

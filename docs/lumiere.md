@@ -85,7 +85,7 @@ Q. 빌드와 배포를 왜 나눠서 이해해야 했나
 
 ### Architecture
 
-![](/assets/lumiere-arch.webp)
+![](../assets/lumiere-arch.webp)
 
 ***배포 구성** — 엣지는 Cloudflare에 맡기고 서비스는 로컬 서버 뒤에 두었다. 감수한 것 — 비용 제약으로 최종 시연은 클라우드가 아니라 로컬 dist 빌드 기반으로 진행했다. 발표자료 · 기술 스택 및 협업 방식.*
 
