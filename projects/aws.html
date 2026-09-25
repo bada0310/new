@@ -285,7 +285,17 @@
         </div>
 
         <div class="dec">
-          <div class="dec-q">Q. Aurora와 DynamoDB를 왜 같이 쓰나 — 하나로 통일하지 않고</div>
+          <div class="dec-q">Q. Aurora와 DynamoDB를 왜 같이 쓰나 — 하나로 통일하지 않고          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>Aurora 하나로 통일</td><td>정합성을 DB가 보장. 저장소 한 벌</td><td><strong>조회 트래픽이 예약 트랜잭션을 밀어냄</strong></td><td class="kill">기각</td></tr>
+                <tr><td>DynamoDB 하나로 통일</td><td>초당 요청이 몰려도 견딤. 저장소 한 벌</td><td>예약의 <strong>정합성을 애플리케이션이 직접 책임</strong>져야 함</td><td class="kill">기각</td></tr>
+                <tr><td><strong>Aurora + DynamoDB 병행</strong></td><td>예약의 정합성과 조회의 속도를 <strong>같은 요청 안에서 서로 다른 경로</strong>로 처리</td><td>백업 · 모니터링 · 스키마 변경이 두 벌</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+</div>
           <p>데이터의 성격이 달랐습니다. <strong>예약</strong>은 중복 예약이 생기면 안 되는 <strong>정합성</strong> 문제이고,
              <strong>조회 · 세션</strong>은 초당 요청이 몰리는 <strong>속도</strong> 문제입니다.</p>
           <p>하나로 통일하면 둘 중 하나는 잘못된 도구를 씁니다. Aurora만 쓰면 조회 트래픽이 예약 트랜잭션을 밀어내고,

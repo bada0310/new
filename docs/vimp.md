@@ -11,7 +11,7 @@
 
 `Vision AI`  `YOLOv5`  `OCR`  `Django`  `Raspberry Pi`  `대한산업공학회 캡스톤디자인 경진대회 장려상`
 
-[제안 · 중간 · 최종 보고서 ↗](https://chungmok.notion.site/ffbc33e768ce4e8399e3ebf0b608c1e8) · [GitHub ↗](https://github.com/wjdtjdbs55/Bimp)
+[제안 · 중간 · 최종 보고서 ↗](https://chungmok.notion.site/ffbc33e768ce4e8399e3ebf0b608c1e8) · [GitHub ↗](https://github.com/wjdtjdbs55/Refrigerator)
 
 ## 개요
 

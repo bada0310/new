@@ -110,11 +110,12 @@
         <ul class="kpi">
 <li><b>GLB 38MB → 378KB</b> POC 실측으로 소품당 <strong>20K~50K 삼각형</strong> 예산을 잡고 텍스처 프로필 3단계(21.3 / 42.6 / 47.9 MiB)를 비교해 MVP 기본값을 고정 — 원본 대비 <strong>약 1/100</strong></li>
 <li><b>배포 다운타임 수 초 → 0</b> 호스트 nginx에 포트가 하드코딩돼 제자리 교체되던 구조를 <strong>blue-green</strong>으로 재설계. health 폴링을 통과해야만 트래픽이 넘어가고, 실패하면 아무 일도 일어나지 않음</li>
-<li><b>핵심 기능 검증 7일 → 3일</b> 난도가 높은 GLB 변환·렌더링을 전체 개발 전에 POC로 떼어내 먼저 검증했습니다</li>
+<li><b>요구 3개 → 6개, 일정 지연 0</b> 업무 단위가 &lsquo;기능&rsquo;이라 병렬화가 안 되던 구조를 <strong>스프린트 · 데일리 스크럼 · Jira 이슈 컨벤션 · 스토리 포인트</strong>로 재편 — 요구 기능이 두 배로 늘었을 때 기존 스토리에 <strong>추가만으로 대응</strong>했습니다</li>
 </ul>
         <details class="kpi-more">
-          <summary>성과 1건 더 보기</summary>
+          <summary>성과 2건 더 보기</summary>
           <ul class="kpi">
+<li><b>핵심 기능 검증 7일 → 3일</b> 난도가 높은 GLB 변환·렌더링을 전체 개발 전에 POC로 떼어내 먼저 검증했습니다</li>
 <li><b>최소 권한 배포</b> 컨테이너를 <strong>127.0.0.1 바인딩</strong>으로 묶어 3000·8081 평문 노출 제거,
               jenkins에는 <code>nginx -t</code> · <code>systemctl reload nginx</code> <strong>두 명령만</strong> sudo 허용</li>
           </ul>
@@ -321,7 +322,16 @@
         <h4>Infra 의사결정 — 왜 이 도구를 붙였나</h4>
 
         <div class="dec">
-          <div class="dec-q">Q. 관측에 왜 Prometheus + Grafana인가</div>
+          <div class="dec-q">Q. 관측에 왜 Prometheus + Grafana인가          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>Datadog · New Relic 같은 관리형 APM</td><td>대시보드와 알림이 준비돼 있고, <strong>서버가 죽어도 관측은 살아 있음</strong></td><td>호스트 단위 월 고정비 — 학생 팀 프로젝트에서 관측에 구독료를 쓸 수 없었음</td><td class="kill">기각</td></tr>
+                <tr><td><strong>Prometheus + Grafana 자체 호스팅</strong></td><td>같은 EC2에 올려 <strong>추가 과금 0</strong></td><td>인스턴스 메모리를 나눠 씀 · 서버가 죽으면 관측도 같이 죽음 · 알림과 대시보드를 직접 만들어야 함</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+</div>
           <p>솔직하게 말하면 <strong>비용 때문입니다.</strong> Datadog·New Relic 같은 관리형 APM은 호스트 단위 월 고정비가 붙습니다.
              학생 팀 프로젝트에서 관측에 구독료를 쓸 수 없었습니다.</p>
           <p>Prometheus · Grafana는 같은 EC2에 올려 <strong>추가 과금 0</strong>.
@@ -336,7 +346,16 @@
           </div>
         </div>
 <div class="dec">
-          <div class="dec-q">Q. 배치 작업에 Airflow를 검토했다가 왜 안 썼나</div>
+          <div class="dec-q">Q. 배치 작업에 Airflow를 검토했다가 왜 안 썼나          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>Airflow</td><td>DAG 단위의 의존성 · 재시도 · 백필</td><td>스케줄러 · 웹서버 · 메타DB가 <strong>상주</strong>해야 함. EC2 한 대에 이미 6개 프로세스</td><td class="kill">기각</td></tr>
+                <tr><td><strong>Jenkins 파이프라인의 한 단계로 흡수</strong></td><td>러너가 이미 있어 <strong>새 상주 프로세스 0개</strong></td><td>DAG 의존성 · 재시도 · 백필을 얻지 못함. 파이프라인이 2~3종으로 늘면 다시 봐야 함</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+</div>
           <p>3D 에셋 경량화는 전형적인 배치 작업입니다. 실패 시 재시도와 단계 간 의존성 관리가 필요해 보여서 <strong>Airflow를 검토했습니다.</strong></p>
           <p>우리 파이프라인은 <strong>사실상 1종</strong>이었습니다. Airflow는 스케줄러 · 웹서버 · 메타DB가 <strong>상주</strong>해야 하는데,
              EC2 한 대에는 이미 <strong>6개 프로세스</strong>가 돌고 있었습니다 — <strong>얹는 비용이 얻는 것보다 컸습니다.</strong></p>
@@ -348,13 +367,32 @@
           <details class="dec-more">
             <summary>기술 선택 2건 더 보기</summary>
 <div class="dec">
-          <div class="dec-q">Q. 왜 Jenkins인가 — GitHub Actions를 두고</div>
+          <div class="dec-q">Q. 왜 Jenkins인가 — GitHub Actions를 두고          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>GitHub Actions</td><td>호스팅 러너 — 우리가 관리할 서버가 없음</td><td>소스가 <strong>사내 GitLab</strong>이라 애초에 선택지가 아니었음</td><td class="kill">기각</td></tr>
+                <tr><td>GitLab CI</td><td>소스와 같은 곳에서 돎</td><td>러너를 결국 <strong>우리 EC2에</strong> 올려야 함 — 관리 지점이 줄지 않음</td><td class="kill">기각</td></tr>
+                <tr><td><strong>Jenkins</strong></td><td>인스턴스 안에서 완결되는 파이프라인 — <strong>관리 지점이 가장 적음</strong></td><td>Jenkins 자체의 유지보수와 플러그인 관리가 우리 몫. 빌드 중 서비스와 CPU를 나눠 씀</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+</div>
           <p>소스가 <strong>사내 GitLab</strong>이라 GitHub Actions는 선택지가 아니었고, GitLab CI도 러너를 우리 EC2에 올려야 했습니다.
              그럴 바엔 <strong>인스턴스 안에서 완결되는</strong> Jenkins가 관리 지점이 적었습니다.</p>
           <p class="dec-win"><b>성과</b>사내 GitLab에서 <strong>인스턴스 안에서 완결되는</strong> 파이프라인 확보.</p><p class="dec-cost"><b>감수한 것</b> Jenkins 자체의 유지보수와 플러그인 관리가 우리 몫이 됩니다. 그리고 빌드가 도는 동안 서비스와 CPU를 나눠 씁니다.</p>
         </div>
 <div class="dec">
-          <div class="dec-q">Q. 왜 Elasticsearch까지 넣었나 — Postgres 검색으로는 안 됐나</div>
+          <div class="dec-q">Q. 왜 Elasticsearch까지 넣었나 — Postgres 검색으로는 안 됐나          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>Postgres 인덱스로 처리</td><td>저장소가 하나로 끝나고 동기화가 없음</td><td>조건 조합이 늘어날 때마다 <strong>인덱스 설계를 다시</strong> 해야 함</td><td class="kill">기각</td></tr>
+                <tr><td><strong>Elasticsearch 추가</strong></td><td>치수 · 규격 · 브랜드 <strong>다중 조건 검색</strong>이 첫 화면에서 바로 동작</td><td>동기화 대상이 하나 늘어남 — Postgres가 원본이고 ES는 사본이라 어긋나면 검색이 실제와 달라짐</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+</div>
           <p>제품 탐색이 <strong>서비스의 진입점</strong>입니다. 치수 범위 · VESA 규격 · 브랜드 · 카테고리를 동시에 거는 다중 조건 검색이
              첫 화면에서 바로 일어납니다.</p>
           <p>Postgres의 인덱스로도 되지만, 조건 조합이 늘어날 때마다 인덱스 설계를 다시 해야 합니다.

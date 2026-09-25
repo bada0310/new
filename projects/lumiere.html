@@ -61,7 +61,17 @@
         <h4>기술 의사결정</h4>
 
         <div class="dec">
-          <div class="dec-q">Q. 로컬 서버를 왜 굳이 외부에 노출했나</div>
+          <div class="dec-q">Q. 로컬 서버를 왜 굳이 외부에 노출했나          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>로컬에서만 개발</td><td>비용 0</td><td>외부 API 콜백을 받을 수 없고 프론트와의 사전 통합 테스트도 불가 — <strong>매번 배포한 뒤에야 확인</strong></td><td class="kill">기각</td></tr>
+                <tr><td>클라우드에 올린다</td><td>주소가 고정되고 상시 가동</td><td><strong>2인 프로젝트에서 쓸 수 없는 비용</strong></td><td class="kill">기각</td></tr>
+                <tr><td><strong>터널링으로 로컬을 노출</strong></td><td>비용 없이 콜백과 사전 통합 테스트가 성립</td><td>로컬 머신이 꺼지면 서비스도 멈춤 — 데모·검증 단계에서만 성립</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+</div>
           <p>클라우드 비용을 쓸 수 없는 2인 프로젝트였습니다. 그런데 <strong>로컬에서는 외부 API 콜백을 받을 수 없고</strong>,
              프론트와의 사전 통합 테스트도 불가능해서 <strong>매번 배포한 뒤에야 확인</strong>하는 병목이 있었습니다.</p>
           <p>그래서 터널링을 도입했습니다. 프론트는 Cloudflare에 두고, API Base URL만 터널 주소로 잡아 로컬 백엔드(<code>:8000</code>)로 흘렸습니다.</p>
@@ -69,7 +79,17 @@
         </div>
 
         <div class="dec fail">
-          <div class="dec-q">Q. ngrok에서 Cloudflare Tunnel로 갈아탄 이유</div>
+          <div class="dec-q">Q. ngrok에서 Cloudflare Tunnel로 갈아탄 이유          <div class="tbl-scroll" style="margin-top:.8rem">
+            <table>
+              <thead><tr><th>선택지</th><th>얻는 것</th><th>치르는 것</th><th>판정</th></tr></thead>
+              <tbody>
+                <tr><td>ngrok 그대로</td><td>붙는 건 가장 빨랐음</td><td>서버를 재시작할 때마다 공개 주소가 바뀜 → <strong>갱신 지점 3곳</strong></td><td class="kill">교체</td></tr>
+                <tr><td>체크리스트를 더 꼼꼼히</td><td>도구를 바꾸지 않아도 됨</td><td>세 곳을 사람이 매번 틀리지 않아야 함 — 원인이 아니라 <strong>조심에 기대는 방식</strong></td><td class="kill">기각</td></tr>
+                <tr><td><strong>Cloudflare Tunnel 고정 도메인</strong></td><td>주소가 상수가 되어 <strong>갱신 지점 3곳 → 0곳</strong></td><td>로컬 머신이 꺼지면 멈추는 구조는 그대로</td><td><strong>채택</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+</div>
           <p>처음엔 ngrok을 썼습니다. 붙는 건 빨랐는데 <strong>서버를 재시작할 때마다 공개 주소가 바뀌었습니다.</strong>
              주소가 바뀌면 갱신해야 할 곳이 세 군데였습니다.</p>
           <ul class="dec-list">
@@ -148,7 +168,7 @@
         <h4>Troubleshooting — 주소가 바뀔 때마다 연동이 끊겼다</h4>
         <div class="ts">
           <div class="ts-row"><div class="ts-k">증상</div><div class="ts-v">배포할 때마다 프론트에서 <code>net::ERR_FAILED</code> · <code>ERR_NAME_NOT_RESOLVED</code> · 404 · CORS가 번갈아 났습니다.</div></div>
-          <div class="ts-row wrong"><div class="ts-k">처음 가설</div><div class="ts-v">CORS 설정 문제로만 봤습니다. <b>틀렸습니다</b> — 네 가지 증상의 원인이 전부 달랐습니다.</div></div>
+          <div class="ts-row wrong"><div class="ts-k">처음 가설</div><div class="ts-v">CORS 설정 문제로만 봤습니다. <b>틀렸습니다</b> — CORS는 네 증상 중 하나였을 뿐이고, 넷 다 원인이 같았습니다.</div></div>
           <div class="ts-row"><div class="ts-k">실제 원인</div><div class="ts-v">ngrok의 <strong>공개 주소가 재시작마다 바뀌는 것</strong>이 근본 원인이었습니다. 주소가 바뀌면 갱신해야 할 곳이 <strong>세 군데</strong>인데 하나씩 빠뜨리고 있었습니다.</div></div>
           <div class="ts-row"><div class="ts-k">어떻게 찾았나</div><div class="ts-v">장애 1차 대응 6단계를 만들어 위에서 아래로 훑었습니다 — 배포 로그 → 기본 실행 URL → 공개 URL → 프론트 요청 주소(F12 Network) → 서버 도달(상태코드) → CORS · host.</div></div>
           <div class="ts-row"><div class="ts-k">해결</div><div class="ts-v"><strong>Cloudflare Tunnel 고정 도메인</strong>으로 전환. 주소가 상수가 되니 갱신 지점 세 군데(프론트 <code>.env</code> · OAuth Redirect URI · 백엔드 CORS 허용목록)가 한 번만 설정하면 되는 값이 됐습니다.</div></div>
