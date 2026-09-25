@@ -54,18 +54,22 @@
 <div class="block" data-sec="overview">
         <h4>핵심 성과 · Key Achievements</h4>
         <ul class="kpi">
-          <li><b>판정 기준을 먼저 정함</b> 두 모델을 만들어 <strong>학습 성능이 아니라 훈련·테스트 격차</strong>로 골랐습니다.
-              결과를 보고 지표를 고르면 무엇이든 정당화되기 때문에 기준을 먼저 고정했습니다</li>
-          <li><b>과적합을 근거로 기각</b> 같은 <strong>50 에포크</strong>에서
+<li><b>격차 4.3배 vs 1.5배로 기각</b> 같은 <strong>50 에포크</strong>에서
               <strong>GMF</strong>는 훈련 손실 <strong>0.0665 &rarr; 테스트 MSE 0.2846</strong>(격차 <strong>4.3배</strong>),
               <strong>NNMF</strong>는 <strong>0.1903 &rarr; 0.2859</strong>(격차 <strong>1.5배</strong>).
               테스트 점수는 <strong>0.5% 차이</strong>로 사실상 같은데 격차만 <strong>3배</strong> 벌어져,
               학습 곡선이 화려하던 GMF를 <strong>과적합을 근거로 기각</strong>하고 NNMF를 채택했습니다</li>
-          <li><b>전처리 파이프라인</b> 영화 ID를 <strong>고유한 연속 정수로 매핑</strong>해 임베딩이 다룰 수 있는 형태로 바꾸고,
-              <code>num_users</code> · <code>num_movies</code> 로 입력 차원을 산출한 뒤 훈련/테스트를 분리했습니다</li>
-          <li><b>표현력과 일반화의 교환</b> 딥러닝을 쓰는 이유(복잡한 패턴 학습)가 <strong>그대로 과적합의 원인</strong>이 된다는 걸
+<li><b>학습 성능이 아니라 격차로 골랐다</b> 두 모델을 같은 조건으로 만들어 <strong>훈련·테스트 격차</strong>를 비교했습니다. 결과를 보고 지표를 고르면 무엇이든 정당화되기 때문에 기준을 먼저 고정했습니다</li>
+<li><b>과적합은 딥러닝을 쓴 대가였다</b> 딥러닝을 쓰는 이유(복잡한 패턴 학습)가 <strong>그대로 과적합의 원인</strong>이 된다는 걸
               두 모델의 격차로 직접 확인했습니다</li>
-        </ul>
+</ul>
+        <details class="kpi-more">
+          <summary>성과 1건 더 보기</summary>
+          <ul class="kpi">
+<li><b>ID를 연속 정수로 재매핑</b> 영화 ID를 <strong>고유한 연속 정수로 매핑</strong>해 임베딩이 다룰 수 있는 형태로 바꾸고,
+              <code>num_users</code> · <code>num_movies</code> 로 입력 차원을 산출한 뒤 훈련/테스트를 분리했습니다</li>
+          </ul>
+        </details>
         <div class="meta2">
           <div><span class="meta2-k">기간</span>2025 · 데이터분석특론 팀 프로젝트</div>
           <div><span class="meta2-k">팀</span>팀 프로젝트</div>

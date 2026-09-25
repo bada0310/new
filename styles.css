@@ -869,6 +869,20 @@ html{scroll-padding-top:8.5rem}
 .dec-win strong{color:var(--fg);font-weight:700}
 .dec .dec-win + .dec-cost{margin-top:.5rem}
 /* the decision cards past the first few, folded away by default */
+.kpi-more{margin-top:.7rem}
+/* .kpi is display:grid, which beats the UA rule hiding a closed details */
+.kpi-more:not([open]) > :not(summary){display:none !important}
+.kpi-more > summary{
+  cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--f-mono);font-size:.72rem;font-weight:700;letter-spacing:.02em;
+  color:var(--muted);padding:.38rem .8rem;border:1px dashed var(--line);border-radius:99px;
+  transition:border-color .16s, color .16s;
+}
+.kpi-more > summary::-webkit-details-marker{display:none}
+.kpi-more > summary::after{content:+;font-weight:700;font-size:.9rem;line-height:1}
+.kpi-more[open] > summary::after{content:\\2212}
+.kpi-more > summary:hover{border-color:var(--fg-2);color:var(--fg)}
+.kpi-more[open] > summary{margin-bottom:.7rem}
 .dec-more{margin-top:1.1rem;border-top:1px dashed var(--line);padding-top:.95rem}
 /* .dec sets its own display, which beats the UA rule that hides a closed
    details' children - so say it explicitly */

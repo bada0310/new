@@ -125,15 +125,17 @@
 <div class="block" data-sec="overview">
         <h4>핵심 성과 · Key Achievements</h4>
         <ul class="kpi">
-          <li><b>인프라 비용 구조 분해</b> 산정표를 항목별로 뜯어 <strong>NAT Gateway가 단일 최대 항목(월 약 $160)</strong>임을 찾아내고,
-              &ldquo;트래픽이 없어도 나가는 고정비&rdquo;부터 재산정 → 예상 월 운영비 <strong>약 20% 절감</strong> (초기 산정 27만 원 기준)</li>
-          <li><b>리전 장애 대응</b> 멀티 리전 <strong>3-Tier Active-Standby</strong> 구성으로 단일 리전 장애 시 서비스 지속.
-              Active-Active는 <strong>고정비 두 배</strong>라는 이유로 명시적으로 기각</li>
-          <li><b>서비스 디스커버리</b> 오토스케일링으로 컨테이너 IP가 바뀔 때마다 끊기던 라우팅을 <strong>ECS Service Connect</strong>로 전환 —
-              IP 고정이 아니라 <strong>이름으로 찾는 구조</strong>로 바꿔 수동 갱신 제거</li>
-          <li><b>분산 로그 중앙화</b> <strong>Fluent Bit 사이드카 → OpenSearch → Kibana + Slack 알림</strong>으로
+<li><b>월 운영비 약 20% 절감</b> 산정표를 항목별로 뜯어 <strong>NAT Gateway가 단일 최대 항목(월 약 $160)</strong>임을 찾아내고, “트래픽이 없어도 나가는 고정비”부터 재산정했습니다 (초기 산정 월 27만 원 기준)</li>
+<li><b>한 리전이 죽어도 서비스 지속</b> 멀티 리전 <strong>3-Tier Active-Standby</strong> 구성. Active-Active는 <strong>고정비 두 배</strong>라는 이유로 명시적으로 기각</li>
+<li><b>IP 대신 이름으로 찾게 전환</b> 오토스케일링으로 컨테이너 IP가 바뀔 때마다 끊기던 라우팅을 <strong>ECS Service Connect</strong>로 전환해 <strong>수동 갱신</strong>을 없앴습니다</li>
+</ul>
+        <details class="kpi-more">
+          <summary>성과 1건 더 보기</summary>
+          <ul class="kpi">
+<li><b>분산 로그 중앙화</b> <strong>Fluent Bit 사이드카 → OpenSearch → Kibana + Slack 알림</strong>으로
               &ldquo;어느 컨테이너에서 터졌는지 모르는&rdquo; 상태를 해소, 디버깅 시간 단축</li>
-        </ul>
+          </ul>
+        </details>
         <div class="meta2">
           <div><span class="meta2-k">기간</span>2024.11 – 12</div>
           <div><span class="meta2-k">팀</span>4인 (백엔드 2 · 프론트엔드 2) · <b>팀장</b> · 기여도 60%</div>

@@ -95,24 +95,26 @@
       <div class="block" data-sec="overview">
         <h4>핵심 성과 · Key Achievements</h4>
         <ul class="kpi">
-          <li><b>데이터셋 자체 구축</b> 쓸 만한 기성 데이터가 없어 <strong>인천 행정동을 직접 크롤링</strong>,
-              <strong>150개 행정동의 카페 점포 특성표</strong>를 만들었습니다</li>
-          <li><b>변수 설계</b> 지역특성 · 근접점포개수 · 근접점포비율 · 지역점포규모 · 지역매출 · 지역영업이익 · 중요고객층
-              <strong>7개 축</strong>으로 상권을 수치화하고, 리뷰 텍스트는 <strong>BERT로 전처리</strong>해 수치 변수와 같은 표에 올렸습니다</li>
-          <li><b>목표를 정확도에서 설명 가능성으로</b> 창업자가 필요한 건 점수가 아니라 <strong>&ldquo;무엇 때문에 그 점수인지&rdquo;</strong>입니다.
-              <strong>SHAP</strong>으로 변수별 기여도를 분해해 &ldquo;근접점포비율이 이만큼 끌어내린다&rdquo;처럼 말할 수 있게 만들었습니다</li>
-          <li><b>통념 대신 수치로 답함</b> 매출과 상관이 높은 변수를 전수 계산해 <strong>상위 9개</strong>를 특정했습니다 &mdash;
-              1위가 <strong>시장규모(r&nbsp;=&nbsp;0.452)</strong>, 2위가 <strong>30대 여성 인구(r&nbsp;=&nbsp;0.432)</strong>.
-              &ldquo;유동인구가 많으면 잘 된다&rdquo;가 아니라 <strong>연령·성별로 쪼갠 인구 구조</strong>가 더 설명력이 높다는 결론입니다</li>
-          <li><b>모델로 검증</b> 리뷰 텍스트만으로 <strong>7개 지역구</strong>(중구 &middot; 서구 &middot; 미추홀구 &middot; 연수구 &middot; 부평구 &middot; 동구 &middot; 남동구)를
+<li><b>1위는 유동인구가 아니라 시장규모</b> 매출과 상관이 높은 변수를 전수 계산해 <strong>상위 9개</strong>를 특정했습니다 — 1위가 <strong>시장규모(r&nbsp;=&nbsp;0.452)</strong>, 2위가 <strong>30대 여성 인구(r&nbsp;=&nbsp;0.432)</strong>. 통념과 달리 <strong>연령·성별로 쪼갠 인구 구조</strong>가 더 설명력이 높았습니다</li>
+<li><b>리뷰만으로 지역구 47% 분류</b> 리뷰 텍스트만으로 <strong>7개 지역구</strong>(중구 &middot; 서구 &middot; 미추홀구 &middot; 연수구 &middot; 부평구 &middot; 동구 &middot; 남동구)를
               맞히는 분류기를 세워 <strong>정확도 약 47%</strong> &mdash; 무작위 추측 <strong>14.3%</strong> 대비 <strong>3.3배</strong>로,
               리뷰에 지역색이 실제로 담겨 있음을 확인했습니다</li>
-          <li><b>안 되는 것은 안 된다고 남김</b> 행정동별 <strong>키워드 등장 비율</strong>로는 유의미한 차이를 얻지 못했습니다 &mdash;
+<li><b>150개 동을 직접 크롤링</b> 쓸 만한 기성 데이터가 없어 <strong>인천 150개 행정동의 카페 점포 특성표</strong>를 직접 만들었습니다</li>
+</ul>
+        <details class="kpi-more">
+          <summary>성과 4건 더 보기</summary>
+          <ul class="kpi">
+<li><b>변수 설계</b> 지역특성 · 근접점포개수 · 근접점포비율 · 지역점포규모 · 지역매출 · 지역영업이익 · 중요고객층
+              <strong>7개 축</strong>으로 상권을 수치화하고, 리뷰 텍스트는 <strong>BERT로 전처리</strong>해 수치 변수와 같은 표에 올렸습니다</li>
+<li><b>안 되는 것은 안 된다고 남김</b> 행정동별 <strong>키워드 등장 비율</strong>로는 유의미한 차이를 얻지 못했습니다 &mdash;
               &lsquo;커피가 맛있어요 &middot; 빵이 맛있어요 &middot; 디저트가 맛있어요&rsquo; <strong>상위 3개</strong>가 어디서나 비중을 차지했기 때문입니다.
               이 경로는 <strong>기각</strong>하고 정량 변수 쪽으로 옮겼습니다</li>
-          <li><b>한계를 결과에 포함</b> 기여도가 낮은 변수를 숨기지 않았고,
+<li><b>목표를 정확도에서 설명 가능성으로</b> 창업자가 필요한 건 점수가 아니라 <strong>&ldquo;무엇 때문에 그 점수인지&rdquo;</strong>입니다.
+              <strong>SHAP</strong>으로 변수별 기여도를 분해해 &ldquo;근접점포비율이 이만큼 끌어내린다&rdquo;처럼 말할 수 있게 만들었습니다</li>
+<li><b>한계를 결과에 포함</b> 기여도가 낮은 변수를 숨기지 않았고,
               <strong>크롤링 스냅샷 한 장으로 판단했다</strong>는 시점 한계를 보고서에 그대로 남겼습니다</li>
-        </ul>
+          </ul>
+        </details>
         <div class="meta2">
           <div><span class="meta2-k">기간</span>2025 · 데이터사이언스응용 팀 프로젝트</div>
           <div><span class="meta2-k">팀</span>팀 프로젝트</div>
