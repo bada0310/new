@@ -237,10 +237,10 @@ td .x{color:var(--mut)}
 
   <h3 class="blk">핵심 성과</h3>
   <ul class="kpi" style="--ac:var(--green)">
-    <li><b>무중단 배포</b>호스트 nginx에 포트가 하드코딩돼 제자리 교체되던 구조를 blue-green으로 재설계 — 배포 중 다운타임 <strong>수 초 → 0</strong></li>
-    <li><b>3D 에셋 파이프라인</b>원본 GLB <strong>38MB → 378KB</strong>. POC 실측으로 소품당 <strong>20K~50K 삼각형</strong> 예산 확정</li>
-    <li><b>선행 검증</b>GLB 변환·렌더링을 전체 개발 전 POC로 분리 검증 — 핵심 기능 검증 <strong>7일 → 3일</strong></li>
-    <li><b>최소 권한 배포</b>컨테이너 <code>127.0.0.1</code> 바인딩으로 평문 노출 제거, jenkins sudo는 <strong>두 명령만</strong> 허용</li>
+    <li><b>배포 다운타임 수 초 → 0</b>호스트 nginx에 포트가 하드코딩돼 제자리 교체되던 구조를 <strong>blue-green</strong>으로 재설계</li>
+    <li><b>GLB 38MB → 378KB</b>POC 실측으로 소품당 <strong>20K~50K 삼각형</strong> 예산 확정</li>
+    <li><b>핵심 기능 검증 7일 → 3일</b>GLB 변환·렌더링을 전체 개발 전 POC로 분리해 먼저 검증</li>
+    <li><b>배포 계정에 최소 권한만</b>컨테이너 <code>127.0.0.1</code> 바인딩으로 평문 노출 제거, jenkins sudo는 <strong>두 명령만</strong> 허용</li>
   </ul>
 
   <div class="mt">
@@ -358,10 +358,10 @@ td .x{color:var(--mut)}
 
   <h3 class="blk">핵심 성과</h3>
   <ul class="kpi" style="--ac:var(--yellow)">
-    <li><b>비용 구조 분해</b>산정표를 항목별로 뜯어 <strong>NAT Gateway가 단일 최대 항목(월 약 $160)</strong>임을 특정 — ALB $48, EC2 $47을 합친 것보다 큼. &ldquo;트래픽이 없어도 나가는 고정비&rdquo;부터 재산정 → <strong>약 20% 절감</strong></li>
-    <li><b>리전 장애 대응</b>멀티 리전 3-Tier <strong>Active-Standby</strong>. Active-Active는 고정비 두 배라 명시적 기각</li>
-    <li><b>서비스 디스커버리</b>오토스케일링으로 IP가 바뀔 때마다 끊기던 라우팅을 <strong>ECS Service Connect</strong>로 — 수동 갱신 <strong>0회</strong></li>
-    <li><b>분산 로그 중앙화</b><strong>Fluent Bit 사이드카 → OpenSearch → Kibana + Slack</strong>으로 &ldquo;어디서 터졌는지 모르는&rdquo; 상태 해소</li>
+    <li><b>월 운영비 약 20% 절감</b>산정표를 항목별로 뜯어 <strong>NAT Gateway가 단일 최대 항목(월 약 $160)</strong>임을 특정 — ALB $48, EC2 $47을 합친 것보다 큼. &ldquo;트래픽이 없어도 나가는 고정비&rdquo;부터 재산정 → <strong>약 20% 절감</strong></li>
+    <li><b>한 리전이 죽어도 서비스 지속</b>3-Tier <strong>Active-Standby</strong>. Active-Active는 고정비 두 배라 명시적 기각</li>
+    <li><b>IP 대신 이름으로 찾게 전환</b>오토스케일링으로 IP가 바뀔 때마다 끊기던 라우팅을 <strong>ECS Service Connect</strong>로 전환 — 수동 갱신 <strong>0회</strong></li>
+    <li><b>흩어진 로그를 한곳에서</b><strong>Fluent Bit 사이드카 → OpenSearch → Kibana + Slack</strong>으로 &ldquo;어디서 터졌는지 모르는&rdquo; 상태 해소</li>
   </ul>
 
   <div class="mt">
@@ -452,10 +452,10 @@ td .x{color:var(--mut)}
 
   <h3 class="blk">핵심 성과</h3>
   <ul class="kpi" style="--ac:var(--blue)">
-    <li><b>문제 재정의</b>팀이 &lsquo;추천 정확도&rsquo;를 보고 있을 때 병목이 <strong>그 이전 단계인 &lsquo;등록&rsquo;</strong>에 있다고 짚고 스코프를 옮겼습니다</li>
-    <li><b>이종 인식 결과 통합</b>객체 인식(YOLOv5)과 문자 인식(OCR)을 한 모델에 합치지 않고 <strong>출력 형식만 공통 스키마로 통일</strong> — 뒷단이 입력 방식을 몰라도 됨</li>
-    <li><b>인식 한계를 전제로 한 설계</b>깊이 카메라·RFID를 각각 비용·현실성으로 기각한 뒤, 인식 범위를 <strong>8종으로 좁혀</strong> 확실한 것만 자동 처리하고 <strong>보정 단계</strong>를 넣었습니다</li>
-    <li><b>사용자 검증 22명</b>정확성 <strong>22/0/0</strong>, 추천 만족 <strong>14/5/3</strong>, 사용성은 보통이 과반 — 숫자를 보고 나서야 <strong>약점이 추천이 아니라 화면</strong>임이 드러났습니다</li>
+    <li><b>병목은 추천이 아니라 등록이었다</b>팀이 &lsquo;추천 정확도&rsquo;를 보고 있을 때 병목이 <strong>그 이전 단계인 &lsquo;등록&rsquo;</strong>에 있다고 짚고 스코프를 옮겼습니다</li>
+    <li><b>사진과 영수증을 한 결과로</b>객체 인식(YOLOv5)과 문자 인식(OCR)을 한 모델에 합치지 않고 <strong>출력 형식만 공통 스키마로 통일</strong> — 뒷단이 입력 방식을 몰라도 됨</li>
+    <li><b>틀릴 것을 전제하고 8종만 자동화</b>깊이 카메라·RFID를 각각 비용·현실성으로 기각한 뒤, 인식 범위를 <strong>8종으로 좁혀</strong> 확실한 것만 자동 처리하고 <strong>보정 단계</strong>를 넣었습니다</li>
+    <li><b>정확성 22/0/0 · 만족 14/5/3</b>사용성은 보통이 과반 — 숫자를 보고 나서야 <strong>약점이 추천이 아니라 화면</strong>임이 드러났습니다</li>
   </ul>
 
   <div class="mt">
