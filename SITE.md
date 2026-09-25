@@ -107,6 +107,19 @@ chrome --headless=new --no-pdf-header-footer --print-to-pdf=portfolio.pdf print.
 
 `print.html`은 사이트와 별개 파일이라 **자동으로 따라오지 않습니다.** 내용을 고쳤다면 여기도 같이 고쳐야 합니다.
 
+### 로컬에서 보기
+
+빌드가 없으므로 받아서 열면 끝입니다.
+
+`ash
+git clone https://github.com/bada0310/portfolio.git
+cd portfolio
+python -m http.server 8000      # 또는  npx serve .
+`
+
+http://localhost:8000 을 엽니다. index.html 을 더블클릭해도 대부분 동작하지만,
+/projects/... 같은 루트 절대경로 링크는 서버로 열어야 제대로 이어집니다.
+
 ---
 
 ## 손볼 만한 자리
